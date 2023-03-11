@@ -13,7 +13,7 @@ const Updates = ({ isButton = false }: { isButton?: boolean }) => {
       }
     >
       <LinkIcon />
-      Source Code
+      Github of Aiko
     </a>
   );
 };
