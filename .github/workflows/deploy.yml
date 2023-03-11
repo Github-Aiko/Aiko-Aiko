@@ -23,10 +23,15 @@ jobs:
       - name: Build website
         run: yarn build
 
-      - name: deploy to GitHub Pages
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          
+      - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
+          publish_dir: ./public
     
