@@ -23,17 +23,10 @@ jobs:
       - name: Build website
         run: yarn build
 
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
-          
-      - name: deploy
+      - name: deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./public
-          user_name: ${{ github.actor }}
-          user_email: ${{ github.actor }}@users.noreply.github.com
-    
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          user_name: 'github-actions[bot]'
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
