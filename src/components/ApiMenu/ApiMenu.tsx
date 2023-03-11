@@ -18,7 +18,7 @@ const ApiMenu = ({
   const setApiFreeEndpoint = useStore((state) => state.setApiFreeEndpoint);
 
   const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
-  const [_apiKey, _setApiKey] = useState<string>(apiKey || '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');
+  const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
   const [_apiFreeEndpoint, _setApiFreeEndpoint] =
     useState<string>(apiFreeEndpoint);
 
@@ -71,7 +71,7 @@ const ApiMenu = ({
         {_apiFree && (
           <div className='mt-2 mb-6'>
             <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
-              Use free API endpoint from{' '}
+              Use AikoAi API endpoint from{' '}
               <a
                 href='https://t.me/aiko_ai_bot'
                 className='underline dark:hover:text-white hover:text-black'
@@ -80,6 +80,13 @@ const ApiMenu = ({
                 AikoAI Bot
               </a>
               : https://api.aikoaiko.me/v1/ or enter your own API endpoint
+              </div>
+              <input
+                type='text'
+                className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
+                value='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'
+            />
+          </div>
             </div>
           </div>
         )}
