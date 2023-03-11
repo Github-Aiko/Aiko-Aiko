@@ -50,7 +50,7 @@ const ApiMenu = ({
 
   return isModalOpen ? (
     <PopupModal
-      title='API'
+      title='License'
       setIsModalOpen={setIsModalOpen}
       handleConfirm={handleSave}
       handleClose={handleClose}
