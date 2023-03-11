@@ -1,2 +1,0 @@
-# Aiko-Web
- Web AIkoAI
