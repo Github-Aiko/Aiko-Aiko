@@ -1,0 +1,26 @@
+import { ChatInterface, ConfigInterface } from '@type/chat';
+
+const date = new Date();
+const dateString =
+  date.getFullYear() +
+  '-' +
+  ('0' + (date.getMonth() + 1)).slice(-2) +
+  '-' +
+  ('0' + date.getDate()).slice(-2);
+
+// default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
+export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute.
+Knowledge cutoff: 03-2023
+Current date: ${dateString}`;
+
+export const defaultChatConfig: ConfigInterface = {
+  temperature: 1,
+  presence_penalty: 0,
+};
+
+export const generateDefaultChat = (title?: string): ChatInterface => ({
+  title: title ? title : 'New Chat',
+  messages: [{ role: 'system', content: defaultSystemMessage }],
+  config: { ...defaultChatConfig },
+  titleSet: false,
+});
