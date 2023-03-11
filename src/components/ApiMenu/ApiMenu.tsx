@@ -64,37 +64,25 @@ const ApiMenu = ({
             onChange={() => _setApiFree(true)}
           />
           <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-            Use free API endpoint
+            Use AikoAI API endpoint
           </label>
         </div>
 
         {_apiFree && (
-          <input
-          type='radio'
-          checked={_apiFree === false}
-          className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
-          onChange={() => _setApiFree(false)}
-        />
-        <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-          Use AikoAi Bot API
-        </label>
-      </div>
-
-      {_apiFree === false && (
-        <div className='flex gap-2 items-center justify-center mt-2'>
-          <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-            API Key
+          <div className='mt-2 mb-6'>
+            <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
+              Use AikoAI API endpoint from{' '}
+              <a
+                href='https://t.me/aiko_ai_bot'
+                className='underline dark:hover:text-white hover:text-black'
+                target='_blank'
+              >
+                AikoAi
+              </a>
+              : https://api.aikoaiko.me/v1/chat/completions or enter your own API endpoint
+            </div>
           </div>
-          <input
-            type='text'
-            className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-            value="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"
-            onChange={(e) => {
-              _setApiKey(e.target.value);
-            }}
-          />
-        </div>
-      )}
+        )}
 
         <div className='flex items-center'>
           <input
