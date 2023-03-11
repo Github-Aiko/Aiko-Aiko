@@ -8,13 +8,21 @@ const dateString =
   '-' +
   date.getFullYear();
 
+const KnowledgeCutoff = new Date();
+const KnowledgeCutoffString =
+  ('0' + (KnowledgeCutoff.getMonth() + 1)).slice(-2) +
+  '-' +
+  KnowledgeCutoff.getFullYear();
+  
+
 export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute dev.
-Knowledge cutoff: 03-2023
+Knowledge cutoff: ${KnowledgeCutoffString}
 Current date: ${dateString}
-Telegram: https://t.me/aiko_ai_bot`;
+Telegram BOT: https://t.me/aiko_ai_bot
+Owner: AikoCute dev`;
 
 export const defaultChatConfig: ConfigInterface = {
-  temperature: 0.8,
+  temperature: 0.7,
   presence_penalty: 0,
 };
 
