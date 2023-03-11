@@ -15,7 +15,7 @@ const KnowledgeCutoffString =
   KnowledgeCutoff.getFullYear();
   
 
-export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute dev.
+export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute.
 Knowledge cutoff: ${KnowledgeCutoffString}
 Current date: ${dateString}
 Telegram BOT: https://t.me/aiko_ai_bot
