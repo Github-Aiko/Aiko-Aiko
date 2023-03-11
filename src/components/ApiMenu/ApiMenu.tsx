@@ -23,7 +23,7 @@ const ApiMenu = ({
 
   const handleSave = async () => {
     if (_apiFree === true) {
-      setApiKey(_apiKey);
+      setApiKey("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");
       setApiFree(false);
       setIsModalOpen(false);
     } else {
@@ -69,9 +69,10 @@ const ApiMenu = ({
 
         {_apiFree && (
           <div className='flex gap-2 items-center justify-center mt-2'>
-            <input
-              value="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"
-            />
+            <div>
+              <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+                AikoCuteHotMe
+            </div>
           </div>
         )}
 
