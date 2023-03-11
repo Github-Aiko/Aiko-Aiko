@@ -15,7 +15,6 @@ const ApiMenu = ({
   const apiFree = useStore((state) => state.apiFree);
   const setApiFree = useStore((state) => state.setApiFree);
   const apiFreeEndpoint = useStore((state) => state.apiFreeEndpoint);
-  const setApiFreeEndpoint = useStore((state) => state.setApiFreeEndpoint);
 
   const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
   const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
@@ -24,8 +23,8 @@ const ApiMenu = ({
 
   const handleSave = async () => {
     if (_apiFree === true) {
-      setApiFreeEndpoint(_apiFreeEndpoint);
-      setApiFree(true);
+      setApiKey(_apiKey);
+      setApiFree(false);
       setIsModalOpen(false);
     } else {
       setApiKey(_apiKey);
@@ -69,32 +68,13 @@ const ApiMenu = ({
         </div>
 
         {_apiFree && (
-          <div className='mt-2 mb-6'>
-            <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
-              Use AikoAI API endpoint from{' '}
-              <a
-                href='https://t.me/aiko_ai_bot'
-                className='underline dark:hover:text-white hover:text-black'
-                target='_blank'
-              >
-                AikoAi
-              </a>
-              : https://chatgpt-api-huuz62kfra-as.a.run.app/v1/ or enter your own API endpoint
+          <div className='flex gap-2 items-center justify-center mt-2'>
+            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+              API Key
             </div>
-            <div className='flex gap-2 items-center justify-center'>
-              <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-                Free API Endpoint
-              </div>
-              <input
-                type='text'
-                className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-                value={_apiFreeEndpoint}
-                placeholder='https://chatgpt-api-huuz62kfra-as.a.run.app/v1/'
-                onChange={(e) => {
-                  _setApiFreeEndpoint(e.target.value);
-                }}
-              />
-            </div>
+            <input
+              value="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"
+            />
           </div>
         )}
 
@@ -130,7 +110,7 @@ const ApiMenu = ({
           Get your personal API key{' '}
           <a
             className='link'
-            href='https://platform.openai.com/account/api-keys'
+            href='https://t.me/aiko_ai_bot'
             target='_blank'
           >
             here
@@ -140,7 +120,7 @@ const ApiMenu = ({
           We prioritise the security of your API key and handle it with utmost
           care. Your key is exclusively stored on your browser and never shared
           with any third-party entity. It is solely used for the intended
-          purpose of accessing the OpenAI API and not for any other unauthorised
+          purpose of accessing the AikoAI API and not for any other unauthorised
           use.
         </div>
       </div>
