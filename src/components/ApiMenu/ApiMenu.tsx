@@ -18,7 +18,7 @@ const ApiMenu = ({
   const setApiFreeEndpoint = useStore((state) => state.setApiFreeEndpoint);
 
   const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
-  const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
+  const [_apiKey, _setApiKey] = useState<string>(apiKey || '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');
   const [_apiFreeEndpoint, _setApiFreeEndpoint] =
     useState<string>(apiFreeEndpoint);
 
@@ -64,7 +64,7 @@ const ApiMenu = ({
             onChange={() => _setApiFree(true)}
           />
           <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-            Use free API endpoint
+            Use AikoAI API endpoint
           </label>
         </div>
 
@@ -77,23 +77,9 @@ const ApiMenu = ({
                 className='underline dark:hover:text-white hover:text-black'
                 target='_blank'
               >
-                Ayaka
+                AikoAI Bot
               </a>
               : https://api.aikoaiko.me/v1/ or enter your own API endpoint
-            </div>
-            <div className='flex gap-2 items-center justify-center'>
-              <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-                Free API Endpoint
-              </div>
-              <input
-                type='text'
-                className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-                value={_apiFreeEndpoint}
-                placeholder='https://chatgpt-api.shn.hk/v1/'
-                onChange={(e) => {
-                  _setApiFreeEndpoint(e.target.value);
-                }}
-              />
             </div>
           </div>
         )}

@@ -1,7 +1,28 @@
 import { ConfigInterface, MessageInterface } from '@type/chat';
 
+export const endpoint = 'https://api.openai.com/v1/chat/completions';
+
+export const validateApiKey = async (apiKey: string) => {
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+    });
+    const data = await response.json();
+
+    if (response.status === 401) return false;
+    else if (response.status === 400) return true;
+  } catch (error) {
+    console.error('Error:', error);
+    return false;
+  }
+};
+
 export const getChatCompletion = async (
-  endpoint: string,
+  apiKey: string,
   messages: MessageInterface[],
   config: ConfigInterface
 ) => {
@@ -9,6 +30,7 @@ export const getChatCompletion = async (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
@@ -23,7 +45,7 @@ export const getChatCompletion = async (
 };
 
 export const getChatCompletionStream = async (
-  endpoint: string,
+  apiKey: string,
   messages: MessageInterface[],
   config: ConfigInterface
 ) => {
@@ -31,6 +53,7 @@ export const getChatCompletionStream = async (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
@@ -39,20 +62,7 @@ export const getChatCompletionStream = async (
       stream: true,
     }),
   });
-  if (response.status === 404 || response.status === 405)
-    throw new Error(
-      'Message from chat.aikoaiko.me:\nInvalid API endpoint! We recommend you to check your free API endpoint.'
-    );
-
-  if (response.status === 429 || !response.ok) {
-    const text = await response.text();
-    let error = text;
-    if (text.includes('insufficient_quota')) {
-      error +=
-        '\nMessage from chat.aikoaiko.me:\nWe recommend changing your API endpoint or API key';
-    }
-    throw new Error(error);
-  }
+  if (!response.ok) throw new Error(await response.text());
 
   const stream = response.body;
   return stream;
