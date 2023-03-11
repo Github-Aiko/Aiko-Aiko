@@ -15,6 +15,7 @@ const ApiMenu = ({
   const apiFree = useStore((state) => state.apiFree);
   const setApiFree = useStore((state) => state.setApiFree);
   const apiFreeEndpoint = useStore((state) => state.apiFreeEndpoint);
+  const setApiFreeEndpoint = useStore((state) => state.setApiFreeEndpoint)
 
   const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
   const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
@@ -23,8 +24,8 @@ const ApiMenu = ({
 
   const handleSave = async () => {
     if (_apiFree === true) {
-      setApiKey("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");
-      setApiFree(false);
+      setApiFreeEndpoint(_apiFreeEndpoint);
+      setApiFree(true);
       setIsModalOpen(false);
     } else {
       setApiKey(_apiKey);
@@ -68,14 +69,34 @@ const ApiMenu = ({
         </div>
 
         {_apiFree && (
-          <div className='flex gap-2 items-center justify-center mt-2'>
-            <div>
-              <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-                AikoCuteHotMe
-            </div>
+          <div className='mt-2 mb-6'>
+          <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
+            Use free API endpoint from{' '}
+            <a
+              href='https://t.me/aiko_ai_bot'
+              className='underline dark:hover:text-white hover:text-black'
+              target='_blank'
+            >
+              AikoAi
+            </a>
+            : https://api.aikoaiko.me/v1/chat/completions or enter your own API endpoint
           </div>
-        )}
-
+          <div className='flex gap-2 items-center justify-center'>
+            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+              Free API Endpoint
+            </div>
+            <input
+              type='text'
+              className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
+              value={_apiFreeEndpoint}
+              placeholder='https://api.aikoaiko.me/v1/chat/completions'
+              onChange={(e) => {
+                _setApiFreeEndpoint(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+      )}
         <div className='flex items-center'>
           <input
             type='radio'
