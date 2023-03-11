@@ -64,42 +64,70 @@ const ApiMenu = ({
             onChange={() => _setApiFree(true)}
           />
           <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-            Use AikoAI API endpoint
+            Use free API endpoint
           </label>
         </div>
 
         {_apiFree && (
-           <div className='mt-2 mb-6'>
-           <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
-             Use free API endpoint from{' '}
-             <a
-               href='https://github.com/ayaka14732/ChatGPTAPIFree'
-               className='underline dark:hover:text-white hover:text-black'
-               target='_blank'
-             >
-               Ayaka
-             </a>
-             : https://chatgpt-api.shn.hk/v1/ or enter your own API endpoint
-           </div>
-           <div className='flex gap-2 items-center justify-center'>
-             <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-               Free API Endpoint
-             </div>
-             <input
-               type='text'
-               className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-               value='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'
-             />
-           </div>
-         </div>
-       )}
+          <input
+          type='radio'
+          checked={_apiFree === false}
+          className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+          onChange={() => _setApiFree(false)}
+        />
+        <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+          Use AikoAi Bot API
+        </label>
+      </div>
 
+      {_apiFree === false && (
+        <div className='flex gap-2 items-center justify-center mt-2'>
+          <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+            API Key
+          </div>
+          <input
+            type='text'
+            value="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"
+            onChange={(e) => {
+              _setApiKey(e.target.value);
+            }}
+          />
+        </div>
+      )}
+
+        <div className='flex items-center'>
+          <input
+            type='radio'
+            checked={_apiFree === false}
+            className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+            onChange={() => _setApiFree(false)}
+          />
+          <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+            Use your own API key
+          </label>
+        </div>
+
+        {_apiFree === false && (
+          <div className='flex gap-2 items-center justify-center mt-2'>
+            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+              API Key
+            </div>
+            <input
+              type='text'
+              className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
+              value={_apiKey}
+              onChange={(e) => {
+                _setApiKey(e.target.value);
+              }}
+            />
+          </div>
+        )}
 
         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4 text-center'>
           Get your personal API key{' '}
           <a
             className='link'
-            href='https://t.me/AikoCute'
+            href='https://platform.openai.com/account/api-keys'
             target='_blank'
           >
             here
@@ -109,7 +137,7 @@ const ApiMenu = ({
           We prioritise the security of your API key and handle it with utmost
           care. Your key is exclusively stored on your browser and never shared
           with any third-party entity. It is solely used for the intended
-          purpose of accessing the AikoAI API and not for any other unauthorised
+          purpose of accessing the OpenAI API and not for any other unauthorised
           use.
         </div>
       </div>
