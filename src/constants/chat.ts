@@ -2,19 +2,19 @@ import { ChatInterface, ConfigInterface } from '@type/chat';
 
 const date = new Date();
 const dateString =
-  date.getFullYear() +
+  ('0' + date.getDate()).slice(-2) +
   '-' +
   ('0' + (date.getMonth() + 1)).slice(-2) +
   '-' +
-  ('0' + date.getDate()).slice(-2);
+  date.getFullYear();
 
-// default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
-export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute.
+export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute dev.
 Knowledge cutoff: 03-2023
-Current date: ${dateString}`;
+Current date: ${dateString}
+Telegram: https://t.me/aiko_ai_bot`;
 
 export const defaultChatConfig: ConfigInterface = {
-  temperature: 1,
+  temperature: 0.8,
   presence_penalty: 0,
 };
 
