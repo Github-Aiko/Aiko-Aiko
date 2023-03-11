@@ -87,6 +87,7 @@ const ApiMenu = ({
           </div>
           <input
             type='text'
+            className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
             value="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"
             onChange={(e) => {
               _setApiKey(e.target.value);
