@@ -69,55 +69,31 @@ const ApiMenu = ({
         </div>
 
         {_apiFree && (
-          <div className='mt-2 mb-6'>
-            <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
-              Use AikoAi API endpoint from{' '}
-              <a
-                href='https://t.me/aiko_ai_bot'
-                className='underline dark:hover:text-white hover:text-black'
-                target='_blank'
-              >
-                AikoAI Bot
-              </a>
-              : https://api.aikoaiko.me/v1/ or enter your own API endpoint
-              </div>
-              <input
-                type='text'
-                className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-                value='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'
-            />
-          </div>
-            </div>
-          </div>
-        )}
+           <div className='mt-2 mb-6'>
+           <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
+             Use free API endpoint from{' '}
+             <a
+               href='https://github.com/ayaka14732/ChatGPTAPIFree'
+               className='underline dark:hover:text-white hover:text-black'
+               target='_blank'
+             >
+               Ayaka
+             </a>
+             : https://chatgpt-api.shn.hk/v1/ or enter your own API endpoint
+           </div>
+           <div className='flex gap-2 items-center justify-center'>
+             <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+               Free API Endpoint
+             </div>
+             <input
+               type='text'
+               className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
+               value='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'
+             />
+           </div>
+         </div>
+       )}
 
-        <div className='flex items-center'>
-          <input
-            type='radio'
-            checked={_apiFree === false}
-            className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
-            onChange={() => _setApiFree(false)}
-          />
-          <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-            Use your own API key
-          </label>
-        </div>
-
-        {_apiFree === false && (
-          <div className='flex gap-2 items-center justify-center mt-2'>
-            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-              API Key
-            </div>
-            <input
-              type='text'
-              className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-              value={_apiKey}
-              onChange={(e) => {
-                _setApiKey(e.target.value);
-              }}
-            />
-          </div>
-        )}
 
         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4 text-center'>
           Get your personal API key{' '}
