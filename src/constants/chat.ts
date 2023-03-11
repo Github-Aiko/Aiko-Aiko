@@ -19,8 +19,7 @@ export const defaultSystemMessage = `You are AikoAi, a large language model trai
 Knowledge cutoff: ${KnowledgeCutoffString}
 Current date: ${dateString}
 Telegram BOT: https://t.me/aiko_ai_bot
-Owner: AikoCute dev
-
+Owner: AikoCute
 `
 ;
 
