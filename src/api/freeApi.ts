@@ -41,7 +41,7 @@ export const getChatCompletionStream = async (
   });
   if (response.status === 404 || response.status === 405)
     throw new Error(
-      'Message from freechatgpt.chat:\nInvalid API endpoint! We recommend you to check your free API endpoint.'
+      'Message from chat.aikoaiko.me:\nInvalid API endpoint! We recommend you to check your free API endpoint.'
     );
 
   if (response.status === 429 || !response.ok) {
@@ -49,7 +49,7 @@ export const getChatCompletionStream = async (
     let error = text;
     if (text.includes('insufficient_quota')) {
       error +=
-        '\nMessage from freechatgpt.chat:\nWe recommend changing your API endpoint or API key';
+        '\nMessage from chat.aikoaiko.me:\nWe recommend changing your API endpoint or API key';
     }
     throw new Error(error);
   }

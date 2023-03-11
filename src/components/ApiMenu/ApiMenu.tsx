@@ -73,13 +73,13 @@ const ApiMenu = ({
             <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
               Use free API endpoint from{' '}
               <a
-                href='https://github.com/ayaka14732/ChatGPTAPIFree'
+                href='https://t.me/aiko_ai_bot'
                 className='underline dark:hover:text-white hover:text-black'
                 target='_blank'
               >
                 Ayaka
               </a>
-              : https://chatgpt-api.shn.hk/v1/ or enter your own API endpoint
+              : https://api.aikoaiko.me/v1/ or enter your own API endpoint
             </div>
             <div className='flex gap-2 items-center justify-center'>
               <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
