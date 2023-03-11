@@ -27,7 +27,7 @@ const AboutMenu = () => {
         >
           <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
             <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm flex flex-col gap-2'>
-              <p>AikoAI là một ứng dụng web đáng kinh ngạc cho phép bạn tương tác với AikoAI Chatbots!</p>
+              <p>AikoAI is an amazing web application that allows you to interact with AikoAI Chatbots!</p>
               <Updates isButton />
 
               <h2 className='text-lg font-bold'>Telegram Server</h2>
