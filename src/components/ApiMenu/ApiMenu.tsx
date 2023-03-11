@@ -69,9 +69,6 @@ const ApiMenu = ({
 
         {_apiFree && (
           <div className='flex gap-2 items-center justify-center mt-2'>
-            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-              API Key
-            </div>
             <input
               value="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"
             />
