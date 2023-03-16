@@ -317,7 +317,7 @@ const EditView = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      if (e.shiftKey) {
+      if (e.shiftKey || e.ctrlKey) {
         // Nếu người dùng nhấn Shift+Enter thì cho phép xuống dòng
         return;
       } else {
