@@ -322,7 +322,8 @@ const EditView = ({
         return;
       } else if (e.ctrlKey) {
         // Nếu người dùng nhấn Ctrl+Enter thì save
-        handleSave();
+        handleSaveAndSubmit();
+        resetTextAreaHeight();
       }
       else {
         // Nếu người dùng chỉ nhấn Enter thì submit form
