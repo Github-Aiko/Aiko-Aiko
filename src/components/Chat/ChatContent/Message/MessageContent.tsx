@@ -317,17 +317,22 @@ const EditView = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      if (e.ctrlKey || e.shiftKey) {
+      if (e.shiftKey) {
+        // Nếu người dùng nhấn Shift+Enter thì cho phép xuống dòng
         return;
       } else {
+        // Nếu người dùng chỉ nhấn Enter thì submit form
         e.preventDefault();
         if (sticky) {
           handleSaveAndSubmit();
           resetTextAreaHeight();
-        } else handleSave();
+        } else {
+          handleSave();
+        }
       }
     }
   };
+  
 
   const handleSave = () => {
     if (sticky && _content === '') return;
