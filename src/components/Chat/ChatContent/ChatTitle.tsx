@@ -47,7 +47,7 @@ const ChatTitle = React.memo(() => {
         }}
       >
         <div className='text-center p-1 rounded-md bg-gray-900/10 hover:bg-gray-900/50'>
-          Model: AikoGPT-01
+          Model: AikoGPT-02
         </div>
         <div className='text-center p-1 rounded-md bg-gray-900/10 hover:bg-gray-900/50'>
           Temperature: {config.temperature}
