@@ -320,12 +320,7 @@ const EditView = ({
       if (e.shiftKey || e.ctrlKey) {
         // Nếu người dùng nhấn Shift+Enter thì cho phép xuống dòng
         return;
-      } else if (e.ctrlKey) {
-        // Nếu người dùng nhấn Ctrl+Enter thì save
-        handleSaveAndSubmit();
-        resetTextAreaHeight();
-      }
-      else {
+      } else {
         // Nếu người dùng chỉ nhấn Enter thì submit form
         e.preventDefault();
         if (sticky) {
