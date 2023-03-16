@@ -317,11 +317,15 @@ const EditView = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      e.preventDefault();
-      if (sticky) {
-        handleSaveAndSubmit();
-        resetTextAreaHeight();
-      } else handleSave();
+      if (e.ctrlKey || e.shiftKey) {
+        return;
+      } else {
+        e.preventDefault();
+        if (sticky) {
+          handleSaveAndSubmit();
+          resetTextAreaHeight();
+        } else handleSave();
+      }
     }
   };
 
