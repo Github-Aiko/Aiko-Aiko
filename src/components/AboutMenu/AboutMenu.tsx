@@ -35,7 +35,7 @@ const AboutMenu = () => {
                   ns='about'
                   components={[
                     <a
-                      href='https://github.com/ztjhz/FreeChatGPT'
+                      href='https://t.me/aiko_ai_bot'
                       target='_blank'
                       className='link'
                     />,
@@ -68,7 +68,7 @@ const AboutMenu = () => {
                     ns='about'
                     components={[
                       <a
-                        href='https://github.com/ztjhz/FreeChatGPT'
+                        href='https://t.me/aiko_ai_bot'
                         target='_blank'
                         className='link'
                       />,
@@ -89,7 +89,7 @@ const AboutMenu = () => {
                       <div>{t('support.momo', { ns: 'about' })} (Aiko)</div>
                       <img
                         className='rounded-md w-32 h-32'
-                        src='https://chat.aikoaiko.me/public/payments/momo.png'
+                        src='https://chat.aikoaiko.me/payments/momo.png'
                         alt='Support us through Momo-wallet'
                       />
                     </div>
@@ -99,7 +99,7 @@ const AboutMenu = () => {
                       </div>
                       <img
                         className='rounded-md w-32 h-32'
-                        src='https://chat.aikoaiko.me/public/payments/banking.png'
+                        src='https://chat.aikoaiko.me/payments/banking.png'
                         alt='Support us through VietQR-Baning'
                       />
                     </div>

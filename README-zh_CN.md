@@ -7,37 +7,37 @@
 <h4 align="center"><b>免费、无限、强大、智能、迷人</b></h4>
 
 <p align="center">
-<a href="https://github.com/ztjhz/FreeChatGPT/blob/main/LICENSE" target="blank">
+<a href="https://t.me/aiko_ai_bot/blob/main/LICENSE" target="blank">
 <img src="https://img.shields.io/github/license/ztjhz/FreeChatGPT?style=flat-square" alt="licence" />
 </a>
-<a href="https://github.com/ztjhz/FreeChatGPT/fork" target="blank">
+<a href="https://t.me/aiko_ai_bot/fork" target="blank">
 <img src="https://img.shields.io/github/forks/ztjhz/FreeChatGPT?style=flat-square" alt="forks"/>
 </a>
-<a href="https://github.com/ztjhz/FreeChatGPT/stargazers" target="blank">
+<a href="https://t.me/aiko_ai_bot/stargazers" target="blank">
 <img src="https://img.shields.io/github/stars/ztjhz/FreeChatGPT?style=flat-square" alt="stars"/>
 </a>
-<a href="https://github.com/ztjhz/FreeChatGPT/issues" target="blank">
+<a href="https://t.me/aiko_ai_bot/issues" target="blank">
 <img src="https://img.shields.io/github/issues/ztjhz/FreeChatGPT?style=flat-square" alt="issues"/>
 </a>
-<a href="https://github.com/ztjhz/FreeChatGPT/pulls" target="blank">
+<a href="https://t.me/aiko_ai_bot/pulls" target="blank">
 <img src="https://img.shields.io/github/issues-pr/ztjhz/FreeChatGPT?style=flat-square" alt="pull-requests"/>
 </a>
-<a href="https://twitter.com/intent/tweet?text=👋请检查这个惊人的存储库 https://github.com/ztjhz/FreeChatGPT，由@nikushii_创建。"><img src="https://img.shields.io/twitter/url?label=%E5%88%86%E4%BA%AB%E5%88%B0%E6%8E%A8%E7%89%B9&style=social&url=https%3A%2F%2Fgithub.com%2Fztjhz%2FFreeChatGPT"></a>
+<a href="https://twitter.com/intent/tweet?text=👋请检查这个惊人的存储库 https://t.me/aiko_ai_bot，由@nikushii_创建。"><img src="https://img.shields.io/twitter/url?label=%E5%88%86%E4%BA%AB%E5%88%B0%E6%8E%A8%E7%89%B9&style=social&url=https%3A%2F%2Fgithub.com%2Fztjhz%2FFreeChatGPT"></a>
 </p>
 
 <p align="center">
-    <a href="https://freechatgpt.chat">查看演示</a>
+    <a href="https://chat.aikoaiko.me">查看演示</a>
     ·
-    <a href="https://github.com/ztjhz/FreeChatGPT/issues/new/choose">反馈问题</a>
+    <a href="https://t.me/aiko_ai_bot/issues/new/choose">反馈问题</a>
     ·
-    <a href="https://github.com/ztjhz/FreeChatGPT/issues/new/choose">请求功能</a>
+    <a href="https://t.me/aiko_ai_bot/issues/new/choose">请求功能</a>
 </p>
 <p align="center"><i>您喜欢使用 Free ChatGPT 吗？请给它一个星星以示支持！🌟</i></p>
 
 ## 👋🏻 介绍 Free ChatGPT
 
 <p align="center">
-    <a href="https://freechatgpt.chat" target="_blank">
+    <a href="https://chat.aikoaiko.me" target="_blank">
         <img src="assets/preview-zh_CN.png" alt="landing" width=500 />
     </a>
 </p>
@@ -84,7 +84,7 @@ Free ChatGPT 已经包含了大量的功能。您可以使用以下功能：
 
 ## 🛠️ 使用方法
 
-要开始使用，只需访问我们的网站：<https://freechatgpt.chat/>。您有 3 种方法可以开始使用 Free ChatGPT。
+要开始使用，只需访问我们的网站：<https://chat.aikoaiko.me/>。您有 3 种方法可以开始使用 Free ChatGPT。
 
 1. 在 API 菜单中输入您从 [OpenAI API Keys](https://platform.openai.com/account/api-keys) 获得的 OpenAI API 密钥。
 2. 使用提供的免费 API 端点：[ayaka14732/ChatGPTAPIFree](https://github.com/ayaka14732/ChatGPTAPIFree)。
@@ -115,8 +115,8 @@ Free ChatGPT 已经包含了大量的功能。您可以使用以下功能：
 ### 步骤
 
 1. 创建一个 GitHub 账户（如果您还没有账户）。
-2. 给此[存储库](https://github.com/ztjhz/FreeChatGPT) 一个星星 ⭐️
-3. Fork 此[存储库](https://github.com/ztjhz/FreeChatGPT)
+2. 给此[存储库](https://t.me/aiko_ai_bot) 一个星星 ⭐️
+3. Fork 此[存储库](https://t.me/aiko_ai_bot)
 4. 如果你不使用自定义域名，需要配置你的 `vite.config.ts` 文件，在 `export default defineConfig({...})` 块内添加 `base: '/<REPO>/'`，其中 `<REPO>` 是你的 GitHub 仓库名称，可以从 `https://<USERNAME>.github.io/<REPO>` 获得（如果你没有改过，`<REPO>` 应该是 `FreeChatGPT`）。代码应该是这样的
 
    ```js
@@ -144,7 +144,7 @@ Free ChatGPT 已经包含了大量的功能。您可以使用以下功能：
    - [node.js](https://nodejs.org/en/)
    - [yarn](https://yarnpkg.com/) 或者 [npm](https://www.npmjs.com/)
 
-2. 通过运行 `git clone https://github.com/ztjhz/FreeChatGPT.git` 克隆此[存储库](https://github.com/ztjhz/FreeChatGPT)。
+2. 通过运行 `git clone https://t.me/aiko_ai_bot.git` 克隆此[存储库](https://t.me/aiko_ai_bot)。
 3. 进入目录通过 `cd FreeChatGPT`
 4. 运行 `yarn` 或 `npm install`，具体取决于您是否安装了 yarn 或 npm。
 5. 运行 `yarn dev` 或 `npm run dev` 来启动应用程序。
