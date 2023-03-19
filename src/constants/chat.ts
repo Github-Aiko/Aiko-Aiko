@@ -24,15 +24,11 @@ Owner: AikoCute
 ;
 
 export const modelOptions: ModelOptions[] = [
-  'Aiko-GPT-01',
-  // 'gpt-3.5-turbo-0301',
-  'Aiko-GPT-02',
-  // 'gpt-4-0314',
-  'Aiko-GPT-03',
-  // 'gpt-4-32k-0314',
+  'gpt-3.5-turbo',
+  'gpt-4',
 ];
 
-export const defaultModel = 'Aiko-GPT-01';
+export const defaultModel = 'gpt-3.5-turbo';
 
 export const modelMaxToken = {
   'gpt-3.5-turbo': 4096,
@@ -41,15 +37,12 @@ export const modelMaxToken = {
   'gpt-4-0314': 8192,
   'gpt-4-32k': 32768,
   'gpt-4-32k-0314': 32768,
-  'Aiko-GPT-01': 4096,
-  'Aiko-GPT-02': 8192,
-  'Aiko-GPT-03': 32768,
 };
 
 export const defaultUserMaxToken = 4000;
 
 export const defaultChatConfig: ConfigInterface = {
-  model: 'gpt-3.5-turbo',
+  model: defaultModel,
   max_tokens: defaultUserMaxToken,
   temperature: 0.7,
   presence_penalty: 0,
