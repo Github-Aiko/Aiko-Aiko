@@ -6,11 +6,6 @@ import MessageContent from './MessageContent';
 import { Role } from '@type/chat';
 import RoleSelector from './RoleSelector';
 
-// const backgroundStyle: { [role in Role]: string } = {
-//   user: 'dark:bg-gray-800',
-//   assistant: 'bg-gray-50 dark:bg-[#444654]',
-//   system: 'bg-gray-50 dark:bg-[#444654]',
-// };
 const backgroundStyle = ['dark:bg-gray-800', 'bg-gray-50 dark:bg-[#444654]'];
 
 const Message = React.memo(
@@ -47,6 +42,10 @@ const Message = React.memo(
             />
           </div>
         </div>
+      </div>
+      // Add the fixed input field here
+      <div style={{ position: 'fixed', bottom: 0, width: '100%' }}>
+        <input type="text" placeholder="Type your message here" />
       </div>
     );
   }
