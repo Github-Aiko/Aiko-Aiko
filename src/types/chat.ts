@@ -1,7 +1,7 @@
 import { Theme } from './theme';
 
-export type Role = 'user' | 'assistant' | 'system';
-export const roles: Role[] = ['user', 'assistant', 'system'];
+export type Role = 'user' | 'Aiko AI' | 'system';
+export const roles: Role[] = ['user', 'Aiko AI', 'system'];
 
 export interface MessageInterface {
   role: Role;
