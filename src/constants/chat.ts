@@ -24,11 +24,11 @@ Owner: AikoCute
 ;
 
 export const modelOptions: ModelOptions[] = [
-  'gpt-3.5-turbo',
+  'Aiko-GPT-01',
   // 'gpt-3.5-turbo-0301',
-  'gpt-4',
+  'Aiko-GPT-02',
   // 'gpt-4-0314',
-  'gpt-4-32k',
+  'Aiko-GPT-03',
   // 'gpt-4-32k-0314',
 ];
 

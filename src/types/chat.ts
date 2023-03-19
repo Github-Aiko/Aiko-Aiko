@@ -31,7 +31,11 @@ export type ModelOptions =
   | 'gpt-4-32k'
   | 'gpt-4-32k-0314'
   | 'gpt-3.5-turbo'
-  | 'gpt-3.5-turbo-0301';
+  | 'gpt-3.5-turbo-0301'
+  | 'Aiko-GPT-01'
+  | 'Aiko-GPT-02'
+  | 'Aiko-GPT-03'
+
 
 export interface LocalStorageInterfaceV0ToV1 {
   chats: ChatInterface[];
