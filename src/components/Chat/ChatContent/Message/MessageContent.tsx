@@ -44,23 +44,25 @@ const MessageContent = ({
 
   return (
     <div className='relative flex flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]'>
-      <div className='flex flex-grow flex-col gap-3'></div>
-      {isEdit ? (
-        <EditView
-          content={content}
-          setIsEdit={setIsEdit}
-          messageIndex={messageIndex}
-          sticky={sticky}
-        />
-      ) : (
-        <ContentView
-          role={role}
-          content={content}
-          setIsEdit={setIsEdit}
-          messageIndex={messageIndex}
-        />
-      )}
+      <div style={{ position: 'fixed', bottom: 0, width: '100%' }}>
+        {isEdit ? (
+          <EditView
+            content={content}
+            setIsEdit={setIsEdit}
+            messageIndex={messageIndex}
+            sticky={sticky}
+          />
+        ) : (
+          <ContentView
+            role={role}
+            content={content}
+            setIsEdit={setIsEdit}
+            messageIndex={messageIndex}
+          />
+        )}
+      </div>
     </div>
+
   );
 };
 
