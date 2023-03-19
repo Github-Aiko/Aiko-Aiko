@@ -32,7 +32,7 @@ export const modelOptions: ModelOptions[] = [
   // 'gpt-4-32k-0314',
 ];
 
-export const defaultModel = 'gpt-3.5-turbo';
+export const defaultModel = 'Aiko-GPT-01';
 
 export const modelMaxToken = {
   'gpt-3.5-turbo': 4096,
@@ -49,7 +49,7 @@ export const modelMaxToken = {
 export const defaultUserMaxToken = 4000;
 
 export const defaultChatConfig: ConfigInterface = {
-  model: defaultModel,
+  model: 'gpt-3.5-turbo',
   max_tokens: defaultUserMaxToken,
   temperature: 0.7,
   presence_penalty: 0,
