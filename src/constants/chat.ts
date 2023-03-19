@@ -41,6 +41,9 @@ export const modelMaxToken = {
   'gpt-4-0314': 8192,
   'gpt-4-32k': 32768,
   'gpt-4-32k-0314': 32768,
+  'Aiko-GPT-01': 4096,
+  'Aiko-GPT-02': 8192,
+  'Aiko-GPT-03': 32768,
 };
 
 export const defaultUserMaxToken = 4000;
