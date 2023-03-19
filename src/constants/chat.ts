@@ -2,16 +2,26 @@ import { ChatInterface, ConfigInterface, ModelOptions } from '@type/chat';
 
 const date = new Date();
 const dateString =
-  date.getFullYear() +
+  ('0' + date.getDate()).slice(-2) +
   '-' +
   ('0' + (date.getMonth() + 1)).slice(-2) +
   '-' +
-  ('0' + date.getDate()).slice(-2);
+  date.getFullYear();
 
-// default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
-export const defaultSystemMessage = `You are ChatGPT, a large language model trained by OpenAI.
-Knowledge cutoff: 2021-09
-Current date: ${dateString}`;
+const KnowledgeCutoff = new Date();
+const KnowledgeCutoffString =
+  ('0' + (KnowledgeCutoff.getMonth() + 1)).slice(-2) +
+  '-' +
+  KnowledgeCutoff.getFullYear();
+  
+
+export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute.
+Knowledge cutoff: ${KnowledgeCutoffString}
+Current date: ${dateString}
+Telegram BOT: https://t.me/aiko_ai_bot
+Owner: AikoCute
+`
+;
 
 export const modelOptions: ModelOptions[] = [
   'gpt-3.5-turbo',
