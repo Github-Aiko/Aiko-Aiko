@@ -119,7 +119,7 @@ const AboutMenu = () => {
                   components={[
                     <a
                       className='link'
-                      href='https://discord.gg/g3Qnwy4V6A'
+                      href='https://t.me/aiko_ai_bot'
                       target='_blank'
                     />,
                   ]}
