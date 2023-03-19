@@ -43,10 +43,6 @@ const Message = React.memo(
           </div>
         </div>
       </div>
-      // Add the fixed input field here
-      <div style={{ position: 'fixed', bottom: 0, width: '100%' }}>
-        <input type="text" placeholder="Type your message here" />
-      </div>
     );
   }
 );
