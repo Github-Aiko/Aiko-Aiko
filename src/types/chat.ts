@@ -34,7 +34,7 @@ export type ModelOptions =
   | 'gpt-3.5-turbo-0301'
   | 'Aiko-GPT-01'
   | 'Aiko-GPT-02'
-  | 'Aiko-GPT-03'
+  | 'Aiko-GPT-03';
 
 
 export interface LocalStorageInterfaceV0ToV1 {
