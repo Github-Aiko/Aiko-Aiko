@@ -186,7 +186,7 @@ const ContentView = React.memo(
         <div className='flex justify-end gap-2 w-full mt-2'>
           {isDelete || (
             <>
-              {role === 'assistant' && messageIndex === lastMessageIndex && (
+              {role === 'Aiko AI' && messageIndex === lastMessageIndex && (
                 <RefreshButton onClick={handleRefresh} />
               )}
               {messageIndex !== 0 && (

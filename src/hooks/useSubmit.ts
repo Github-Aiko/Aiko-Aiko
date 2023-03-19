@@ -46,7 +46,7 @@ const useSubmit = () => {
     const updatedChats: ChatInterface[] = JSON.parse(JSON.stringify(chats));
 
     updatedChats[currentChatIndex].messages.push({
-      role: 'assistant',
+      role: 'Aiko AI',
       content: '',
     });
 
@@ -129,7 +129,7 @@ const useSubmit = () => {
 
         const message: MessageInterface = {
           role: 'user',
-          content: `Generate a title in less than 6 words for the following message:\nUser: ${user_message}\nAssistant: ${assistant_message}`,
+          content: `Generate a title in less than 6 words for the following message:\nUser: ${user_message}\nAiko AI: ${assistant_message}`,
         };
 
         let title = await generateTitle([message]);

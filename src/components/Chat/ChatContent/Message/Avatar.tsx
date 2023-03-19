@@ -7,7 +7,7 @@ const Avatar = ({ role }: { role: Role }) => {
   return (
     <div className='w-[30px] flex flex-col relative items-end'>
       {role === 'user' && <UserAvatar />}
-      {role === 'assistant' && <AssistantAvatar />}
+      {role === 'Aiko AI' && <AssistantAvatar />}
       {role === 'system' && <SystemAvatar />}
     </div>
   );
