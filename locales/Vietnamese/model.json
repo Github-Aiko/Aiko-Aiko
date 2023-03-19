@@ -1,0 +1,25 @@
+{
+    "configuration": "Cấu hình",
+    "model": "Model",
+    "token": {
+        "label": "Max Token",
+        "description": "Số lượng mã thông báo tối đa để tạo khi hoàn thành cuộc trò chuyện. Tổng độ dài của mã thông báo đầu vào và mã thông báo được tạo bị giới hạn bởi độ dài ngữ cảnh của mô hình."
+    },
+    "default": "Default",
+    "temperature": {
+        "label": "Nhiệt độ",
+        "description": "Nên sử dụng nhiệt độ lấy mẫu nào, trong khoảng từ 0 đến 2. Các giá trị cao hơn như 0,8 sẽ làm cho đầu ra ngẫu nhiên hơn, trong khi các giá trị thấp hơn như 0,2 sẽ làm cho đầu ra tập trung và xác định hơn. Chúng tôi thường khuyên bạn nên thay đổi p này hoặc p trên cùng nhưng không phải cả hai. (Mặc định: 1)"
+    },
+    "presencePenalty": {
+        "label": "Hình phạt hiện diện",
+        "description": "Số giữa -2,0 và 2,0. Các giá trị dương sẽ phạt các mã thông báo mới dựa trên việc chúng có xuất hiện trong văn bản cho đến nay hay không, làm tăng khả năng mô hình nói về các chủ đề mới. (Mặc định: 0)"
+    },
+    "topP": {
+        "label": "Top-p",
+        "description": "Đánh số từ 0 đến 1. Một giải pháp thay thế cho lấy mẫu theo nhiệt độ, được gọi là lấy mẫu hạt nhân, trong đó mô hình xem xét kết quả của các mã thông báo có khối lượng xác suất p cao nhất. Vì vậy, 0,1 có nghĩa là chỉ những mã thông báo bao gồm 10% khối lượng xác suất hàng đầu mới được xem xét. Chúng tôi thường khuyên bạn nên thay đổi điều này hoặc nhiệt độ chứ không phải cả hai. (Mặc định: 1)"
+    },
+    "frequencyPenalty": {
+        "label": "Hình phạt tần số",
+        "description": "Số giữa -2,0 và 2,0. Các giá trị dương sẽ phạt các mã thông báo mới dựa trên tần suất hiện có của chúng trong văn bản cho đến nay, làm giảm khả năng mô hình lặp lại nguyên văn cùng một dòng. (Mặc định: 0)"
+    }
+}
