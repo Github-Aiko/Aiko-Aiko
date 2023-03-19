@@ -310,12 +310,20 @@ const EditView = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if ((e.ctrlKey || e.shiftKey) && e.key === 'Enter') {
-      e.preventDefault();
-      if (sticky) {
-        handleSaveAndSubmit();
-        resetTextAreaHeight();
-      } else handleSave();
+    if (e.key === 'Enter') {
+      if (e.shiftKey || e.ctrlKey) {
+        // Nếu người dùng nhấn Shift+Enter thì cho phép xuống dòng
+        return;
+      } else {
+        // Nếu người dùng chỉ nhấn Enter thì submit form
+        e.preventDefault();
+        if (sticky) {
+          handleSaveAndSubmit();
+          resetTextAreaHeight();
+        } else {
+          handleSave();
+        }
+      }
     }
   };
 
