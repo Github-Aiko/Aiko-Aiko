@@ -139,7 +139,7 @@ const ApiMenu = ({
             ns='api'
             components={[
               <a
-                href='https://github.com/ayaka14732/ChatGPTAPIFree'
+                href='https://t.me/aiko_ai_bot'
                 className='link'
                 target='_blank'
               />,
@@ -152,7 +152,7 @@ const ApiMenu = ({
             ns='api'
             components={[
               <a
-                href='https://github.com/acheong08/ShareGPT'
+                href='https://t.me/aiko_ai_bot'
                 className='link'
                 target='_blank'
               />,
