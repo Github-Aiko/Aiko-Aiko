@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import PopupModal from '@components/PopupModal';
 import AboutIcon from '@icon/AboutIcon';
-import Updates from '@components/Menu/MenuOptions/Updates';
 
 const AboutMenu = () => {
+  const { t } = useTranslation(['main', 'about']);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
@@ -17,35 +18,120 @@ const AboutMenu = () => {
         <div>
           <AboutIcon />
         </div>
-        About
+        {t('about')}
       </a>
       {isModalOpen && (
         <PopupModal
-          title='About'
+          title={t('about') as string}
           setIsModalOpen={setIsModalOpen}
           cancelButton={false}
         >
           <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
-            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm flex flex-col gap-2'>
-              <p>AikoAI is an amazing web application that allows you to interact with AikoAI Chatbots!</p>
-              <Updates isButton />
+            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm flex flex-col gap-3 leading-relaxed'>
+              <p>{t('description', { ns: 'about' })}</p>
+              <p>
+                <Trans
+                  i18nKey='sourceCode'
+                  ns='about'
+                  components={[
+                    <a
+                      href='https://github.com/ztjhz/FreeChatGPT'
+                      target='_blank'
+                      className='link'
+                    />,
+                  ]}
+                />
+              </p>
 
-              <h2 className='text-lg font-bold'>Telegram Server</h2>
-              <p>We invite you to join our Telegram community! Our Telegram group is a fantastic platform to exchange ChatGPT ideas and tips, submit feature requests for Free ChatGPT, and interact with the developers behind the project, as well as other AI enthusiasts who share your passion.</p>
+              <p>
+                <Trans
+                  i18nKey='initiative.description'
+                  ns='about'
+                  components={[
+                    <a
+                      href={t('initiative.link', { ns: 'about' }) as string}
+                      target='_blank'
+                      className='link'
+                    />,
+                  ]}
+                />
+              </p>
 
-              <p>To join our server, simply click on the following link: <a className='link' href='https://t.me/aiko_ai_bot' target='_blank'>https://t.me/aiko_ai_bot</a>. We can't wait to see you there!</p>
+              <>
+                <h2 className='text-lg font-bold'>
+                  {t('support.title', { ns: 'about' })}
+                </h2>
+                <p>{t('support.paragraph1', { ns: 'about' })}</p>
+                <p>
+                  <Trans
+                    i18nKey='support.paragraph2'
+                    ns='about'
+                    components={[
+                      <a
+                        href='https://github.com/ztjhz/FreeChatGPT'
+                        target='_blank'
+                        className='link'
+                      />,
+                    ]}
+                  />
+                </p>
+                <p>{t('support.paragraph3', { ns: 'about' })}</p>
 
-              <h2 className='text-lg font-bold'>Privacy Statement</h2>
-              <p>We highly value your privacy and are committed to safeguarding the privacy of our users. We do not collect or store any text you enter or receive from the AikoAI server in any form. Our source code is available for your inspection to verify this statement.</p>
+                <div className='flex flex-col items-center gap-4 my-4'>
+                  <a href='https://ko-fi.com/freechatgpt' target='_blank'>
+                    <img
+                      src='/kofi.svg'
+                      alt='Support us through the Ko-fi platform.'
+                    />
+                  </a>
+                  <div className='flex gap-x-10 gap-y-4 flex-wrap justify-center'>
+                    <div className='flex flex-col items-center justify-center gap-1'>
+                      <div>{t('support.momo', { ns: 'about' })} (Aiko)</div>
+                      <img
+                        className='rounded-md w-32 h-32'
+                        src='https://chat.aikoaiko.me/public/payments/momo.png'
+                        alt='Support us through Momo-wallet'
+                      />
+                    </div>
+                    <div className='flex flex-col items-center justify-center gap-1'>
+                      <div>
+                        {t('support.banking', { ns: 'about' })} (Aiko)
+                      </div>
+                      <img
+                        className='rounded-md w-32 h-32'
+                        src='https://chat.aikoaiko.me/public/payments/banking.png'
+                        alt='Support us through VietQR-Baning'
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
 
-              <p>We prioritize the security of your API key and handle it with utmost care. If you use your own API key, your key is exclusively stored on your browser and never shared with any third-party entity. It is solely used for the intended purpose of accessing the AikoAI API and not for any other unauthorized use.</p>
-              <h2 className='text-lg font-bold'>Support</h2>
-              <p>We strive to provide you with useful and amazing features around the clock. And just like any project, your support and motivation will be instrumental in helping us keep moving forward!</p>
-              <p>If you would like to support the team, consider buying us a coffee by clicking on the button below. Every contribution, no matter how small, helps us to maintain and improve our service.</p>
-              <a href="https://ko-fi.com/aikocute" target="_blank">
-                  <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="support" />
-              </a>
-              <p>Thank you for being a part of our community, and we look forward to serving you better in the future.</p>
+              <h2 className='text-lg font-bold'>
+                {t('telegramServer.title', { ns: 'about' })}
+              </h2>
+              <p>{t('telegramServer.paragraph1', { ns: 'about' })}</p>
+
+              <p>
+                <Trans
+                  i18nKey='telegramServer.paragraph2'
+                  ns='about'
+                  components={[
+                    <a
+                      className='link'
+                      href='https://discord.gg/g3Qnwy4V6A'
+                      target='_blank'
+                    />,
+                  ]}
+                />
+              </p>
+
+              <h2 className='text-lg font-bold'>
+                {t('privacyStatement.title', { ns: 'about' })}
+              </h2>
+              <p>{t('privacyStatement.paragraph1', { ns: 'about' })}</p>
+
+              <p>{t('privacyStatement.paragraph2', { ns: 'about' })}</p>
             </div>
           </div>
         </PopupModal>

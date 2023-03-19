@@ -48930,7 +48930,7 @@ const tokens = [
   "ĠTravels",
   "ĠHeader",
   "ĠClubs",
-  "Aiko AI",
+  "Assistant",
   "Ġincrim",
   "Ġdips",
   "Ġcrucifix",

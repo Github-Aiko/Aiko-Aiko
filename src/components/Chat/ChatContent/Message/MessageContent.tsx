@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
+import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
+import { CodeProps, ReactMarkdownProps } from 'react-markdown/lib/ast-to-react';
 import rehypeKatex from 'rehype-katex';
+import rehypeHighlight from 'rehype-highlight';
 import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
-import hljs from 'highlight.js';
-import DOMPurify from 'dompurify';
 import useStore from '@store/store';
 
-import CopyIcon from '@icon/CopyIcon';
 import EditIcon2 from '@icon/EditIcon2';
 import DeleteIcon from '@icon/DeleteIcon';
 import TickIcon from '@icon/TickIcon';
@@ -20,6 +25,9 @@ import useSubmit from '@hooks/useSubmit';
 import { ChatInterface } from '@type/chat';
 
 import PopupModal from '@components/PopupModal';
+import CommandPrompt from './CommandPrompt';
+import CodeBlock from './CodeBlock';
+import { codeLanguageSubset } from '@constants/chat';
 
 const MessageContent = ({
   role,
@@ -100,6 +108,14 @@ const ContentView = React.memo(
       setChats(updatedChats);
     };
 
+    const handleMoveUp = () => {
+      handleMove('up');
+    };
+
+    const handleMoveDown = () => {
+      handleMove('down');
+    };
+
     const handleRefresh = () => {
       const updatedChats: ChatInterface[] = JSON.parse(
         JSON.stringify(useStore.getState().chats)
@@ -114,70 +130,25 @@ const ContentView = React.memo(
       <>
         <div className='markdown prose w-full break-words dark:prose-invert dark'>
           <ReactMarkdown
-            remarkPlugins={[remarkMath, remarkGfm]}
-            rehypePlugins={[[rehypeKatex, { output: 'mathml' }]]}
+            remarkPlugins={[
+              remarkGfm,
+              [remarkMath, { singleDollarTextMath: false }],
+            ]}
+            rehypePlugins={[
+              [rehypeKatex, { output: 'mathml' }],
+              [
+                rehypeHighlight,
+                {
+                  detect: true,
+                  ignoreMissing: true,
+                  subset: codeLanguageSubset,
+                },
+              ],
+            ]}
+            linkTarget='_new'
             components={{
-              code({ node, inline, className, children, ...props }) {
-                if (inline) return <code>{children}</code>;
-                const [copied, setCopied] = useState<boolean>(false);
-
-                let highlight;
-                const match = /language-(\w+)/.exec(className || '');
-                const lang = match && match[1];
-                const isMatch = lang && hljs.getLanguage(lang);
-                if (isMatch)
-                  highlight = hljs.highlight(children.toString(), {
-                    language: lang,
-                  });
-                else highlight = hljs.highlightAuto(children.toString());
-
-                return (
-                  <div className='bg-black rounded-md'>
-                    <div className='flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans'>
-                      <span className=''>{highlight.language}</span>
-                      <button
-                        className='flex ml-auto gap-2'
-                        onClick={() => {
-                          navigator.clipboard
-                            .writeText(children.toString())
-                            .then(() => {
-                              setCopied(true);
-                              setTimeout(() => setCopied(false), 3000);
-                            });
-                        }}
-                      >
-                        {copied ? (
-                          <>
-                            <TickIcon />
-                            Copied!
-                          </>
-                        ) : (
-                          <>
-                            <CopyIcon />
-                            Copy code
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <div className='p-4 overflow-y-auto'>
-                      <code
-                        className={`!whitespace-pre hljs language-${highlight.language}`}
-                      >
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(highlight.value, {
-                              USE_PROFILES: { html: true },
-                            }),
-                          }}
-                        />
-                      </code>
-                    </div>
-                  </div>
-                );
-              },
-              p({ className, children, ...props }) {
-                return <p className='whitespace-pre-wrap'>{children}</p>;
-              },
+              code,
+              p,
             }}
           >
             {content}
@@ -186,14 +157,12 @@ const ContentView = React.memo(
         <div className='flex justify-end gap-2 w-full mt-2'>
           {isDelete || (
             <>
-              {role === 'Aiko AI' && messageIndex === lastMessageIndex && (
+              {role === 'assistant' && messageIndex === lastMessageIndex && (
                 <RefreshButton onClick={handleRefresh} />
               )}
-              {messageIndex !== 0 && (
-                <UpButton onClick={() => handleMove('up')} />
-              )}
+              {messageIndex !== 0 && <UpButton onClick={handleMoveUp} />}
               {messageIndex !== lastMessageIndex && (
-                <DownButton onClick={() => handleMove('down')} />
+                <DownButton onClick={handleMoveDown} />
               )}
 
               <EditButton setIsEdit={setIsEdit} />
@@ -219,6 +188,33 @@ const ContentView = React.memo(
   }
 );
 
+const code = React.memo((props: CodeProps) => {
+  const { inline, className, children } = props;
+  const match = /language-(\w+)/.exec(className || '');
+  const lang = match && match[1];
+
+  if (inline) {
+    return <code className={className}>{children}</code>;
+  } else {
+    return <CodeBlock lang={lang || 'text'} codeChildren={children} />;
+  }
+});
+
+const p = React.memo(
+  (
+    props?: Omit<
+      DetailedHTMLProps<
+        HTMLAttributes<HTMLParagraphElement>,
+        HTMLParagraphElement
+      >,
+      'ref'
+    > &
+      ReactMarkdownProps
+  ) => {
+    return <p className='whitespace-pre-wrap'>{props?.children}</p>;
+  }
+);
+
 const MessageButton = ({
   onClick,
   icon,
@@ -238,23 +234,29 @@ const MessageButton = ({
   );
 };
 
-const EditButton = ({
-  setIsEdit,
-}: {
-  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
-  return <MessageButton icon={<EditIcon2 />} onClick={() => setIsEdit(true)} />;
-};
+const EditButton = React.memo(
+  ({
+    setIsEdit,
+  }: {
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+  }) => {
+    return (
+      <MessageButton icon={<EditIcon2 />} onClick={() => setIsEdit(true)} />
+    );
+  }
+);
 
-const DeleteButton = ({
-  setIsDelete,
-}: {
-  setIsDelete: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
-  return (
-    <MessageButton icon={<DeleteIcon />} onClick={() => setIsDelete(true)} />
-  );
-};
+const DeleteButton = React.memo(
+  ({
+    setIsDelete,
+  }: {
+    setIsDelete: React.Dispatch<React.SetStateAction<boolean>>;
+  }) => {
+    return (
+      <MessageButton icon={<DeleteIcon />} onClick={() => setIsDelete(true)} />
+    );
+  }
+);
 
 const DownButton = ({
   onClick,
@@ -263,7 +265,6 @@ const DownButton = ({
 }) => {
   return <MessageButton icon={<DownChevronArrow />} onClick={onClick} />;
 };
-
 const UpButton = ({
   onClick,
 }: {
@@ -276,7 +277,6 @@ const UpButton = ({
     />
   );
 };
-
 const RefreshButton = ({
   onClick,
 }: {
@@ -284,7 +284,6 @@ const RefreshButton = ({
 }) => {
   return <MessageButton icon={<RefreshIcon />} onClick={onClick} />;
 };
-
 const EditView = ({
   content,
   setIsEdit,
@@ -304,35 +303,21 @@ const EditView = ({
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const textareaRef = React.createRef<HTMLTextAreaElement>();
 
+  const { t } = useTranslation();
+
   const resetTextAreaHeight = () => {
     if (textareaRef.current) textareaRef.current.style.height = 'auto';
   };
 
-  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${e.target.scrollHeight}px`;
-    }
-  };
-
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter') {
-      if (e.shiftKey || e.ctrlKey) {
-        // Nếu người dùng nhấn Shift+Enter thì cho phép xuống dòng
-        return;
-      } else {
-        // Nếu người dùng chỉ nhấn Enter thì submit form
-        e.preventDefault();
-        if (sticky) {
-          handleSaveAndSubmit();
-          resetTextAreaHeight();
-        } else {
-          handleSave();
-        }
-      }
+    if ((e.ctrlKey || e.shiftKey) && e.key === 'Enter') {
+      e.preventDefault();
+      if (sticky) {
+        handleSaveAndSubmit();
+        resetTextAreaHeight();
+      } else handleSave();
     }
   };
-  
 
   const handleSave = () => {
     if (sticky && _content === '') return;
@@ -380,6 +365,13 @@ const EditView = ({
       textareaRef.current.style.height = 'auto';
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
     }
+  }, [_content]);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
   }, []);
 
   return (
@@ -398,64 +390,101 @@ const EditView = ({
             _setContent(e.target.value);
           }}
           value={_content}
-          onInput={handleInput}
           onKeyDown={handleKeyDown}
           rows={1}
         ></textarea>
       </div>
-      <div className='text-center mt-2 flex justify-center'>
-        {sticky && (
-          <button
-            className='btn relative mr-2 btn-primary'
-            onClick={handleSaveAndSubmit}
-          >
-            <div className='flex items-center justify-center gap-2'>
-              Save & Submit
-            </div>
-          </button>
-        )}
-
-        <button
-          className={`btn relative mr-2 ${
-            sticky ? 'btn-neutral' : 'btn-primary'
-          }`}
-          onClick={handleSave}
-        >
-          <div className='flex items-center justify-center gap-2'>Save</div>
-        </button>
-
-        {sticky || (
-          <button
-            className='btn relative mr-2 btn-neutral'
-            onClick={() => {
-              setIsModalOpen(true);
-            }}
-          >
-            <div className='flex items-center justify-center gap-2'>
-              Save & Submit
-            </div>
-          </button>
-        )}
-
-        {sticky || (
-          <button
-            className='btn relative btn-neutral'
-            onClick={() => setIsEdit(false)}
-          >
-            <div className='flex items-center justify-center gap-2'>Cancel</div>
-          </button>
-        )}
-      </div>
+      <EditViewButtons
+        sticky={sticky}
+        handleSaveAndSubmit={handleSaveAndSubmit}
+        handleSave={handleSave}
+        setIsModalOpen={setIsModalOpen}
+        setIsEdit={setIsEdit}
+        _setContent={_setContent}
+      />
       {isModalOpen && (
         <PopupModal
           setIsModalOpen={setIsModalOpen}
-          title='Warning'
-          message='Please be advised that by submitting this message, all subsequent messages will be deleted!'
+          title={t('warning') as string}
+          message={t('clearMessageWarning') as string}
           handleConfirm={handleSaveAndSubmit}
         />
       )}
     </>
   );
 };
+
+const EditViewButtons = React.memo(
+  ({
+    sticky = false,
+    handleSaveAndSubmit,
+    handleSave,
+    setIsModalOpen,
+    setIsEdit,
+    _setContent,
+  }: {
+    sticky?: boolean;
+    handleSaveAndSubmit: () => void;
+    handleSave: () => void;
+    setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    _setContent: React.Dispatch<React.SetStateAction<string>>;
+  }) => {
+    const { t } = useTranslation();
+
+    return (
+      <div className='flex'>
+        <div className='flex-1 text-center mt-2 flex justify-center'>
+          {sticky && (
+            <button
+              className='btn relative mr-2 btn-primary'
+              onClick={handleSaveAndSubmit}
+            >
+              <div className='flex items-center justify-center gap-2'>
+                {t('saveAndSubmit')}
+              </div>
+            </button>
+          )}
+
+          <button
+            className={`btn relative mr-2 ${
+              sticky ? 'btn-neutral' : 'btn-primary'
+            }`}
+            onClick={handleSave}
+          >
+            <div className='flex items-center justify-center gap-2'>
+              {t('save')}
+            </div>
+          </button>
+
+          {sticky || (
+            <button
+              className='btn relative mr-2 btn-neutral'
+              onClick={() => {
+                setIsModalOpen(true);
+              }}
+            >
+              <div className='flex items-center justify-center gap-2'>
+                {t('saveAndSubmit')}
+              </div>
+            </button>
+          )}
+
+          {sticky || (
+            <button
+              className='btn relative btn-neutral'
+              onClick={() => setIsEdit(false)}
+            >
+              <div className='flex items-center justify-center gap-2'>
+                {t('cancel')}
+              </div>
+            </button>
+          )}
+        </div>
+        <CommandPrompt _setContent={_setContent} />
+      </div>
+    );
+  }
+);
 
 export default MessageContent;
