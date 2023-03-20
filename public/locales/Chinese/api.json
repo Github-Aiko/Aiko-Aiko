@@ -1,0 +1,15 @@
+{
+    "securityMessage": "我们优先考虑您的 API 密钥的安全性，并且非常小心地处理它。您的密钥仅存储在您的浏览器上，从不与任何第三方实体共享。它仅用于访问 AikoAI API 的预期目的，而不用于任何其他未经授权的用途。",
+    "apiEndpoint": {
+        "option": "免费使用",
+        "inputLabel": "API 端点",
+        "description": "感谢 <0>Ayaka</0> 提供免费的 API 端点：https://chatgpt-api.shn.hk/v1/"
+    },
+    "apiKey": {
+        "option": "使用您自己的 API 密钥",
+        "howTo": "在此处获取您的个人 API 密钥<0></0>",
+        "inputLabel": "API 密钥"
+    },
+    "customEndpoint": "使用自定义 API 端点",
+    "shareGPT": "查看 <0>AikoCute</0>，它是一个 API 密钥共享工具，为 https://sharegpt.churchless.tech/share/v1/chat 提供支持"
+}
