@@ -1,4 +1,5 @@
 import { ChatInterface, ConfigInterface, ModelOptions } from '@type/chat';
+import useStore from '@store/store';
 
 const date = new Date();
 const dateString =
@@ -15,7 +16,7 @@ const KnowledgeCutoffString =
   KnowledgeCutoff.getFullYear();
   
 
-export const defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute.
+export const _defaultSystemMessage = `You are AikoAi, a large language model trained by AikoCute.
 Knowledge cutoff: ${KnowledgeCutoffString}
 Current date: ${dateString}
 Telegram BOT: https://t.me/aiko_ai_bot
@@ -45,7 +46,7 @@ export const modelMaxToken = {
 
 export const defaultUserMaxToken = 4000;
 
-export const defaultChatConfig: ConfigInterface = {
+export const _defaultChatConfig: ConfigInterface = {
   model: defaultModel,
   max_tokens: defaultUserMaxToken,
   temperature: 0.7,
@@ -56,8 +57,10 @@ export const defaultChatConfig: ConfigInterface = {
 
 export const generateDefaultChat = (title?: string): ChatInterface => ({
   title: title ? title : 'New Chat',
-  messages: [{ role: 'system', content: defaultSystemMessage }],
-  config: { ...defaultChatConfig },
+  messages: [
+    { role: 'system', content: useStore.getState().defaultSystemMessage },
+  ],
+  config: { ...useStore.getState().defaultChatConfig },
   titleSet: false,
 });
 

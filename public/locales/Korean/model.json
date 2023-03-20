@@ -21,5 +21,8 @@
     "frequencyPenalty": {
         "label": "Frequency Penalty",
         "description": "-2.0에서 2.0 사이의 숫자. 양수 값은 새로운 토큰을 이전 텍스트에서의 기존 빈도수에 따라 패널티를 부과하여 모델이 동일한 줄을 반복하는 확률을 낮춥니다. (기본값: 0)"
-    }
+    },
+    "defaultChatConfig": "Default Chat Config",
+    "defaultSystemMessage": "Default System Message",
+    "resetToDefault": "Reset To Default"
 }

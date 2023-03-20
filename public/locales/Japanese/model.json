@@ -21,5 +21,8 @@
     "frequencyPenalty": {
         "label": "頻度ペナルティ",
         "description": "-2.0から2.0の数値を設定できます。正の値は、既存のテキストでのトークンの頻度に基づいて新しいトークンにペナルティを課し、モデルが同じ行を完全に繰り返す可能性を減らします。 （デフォルト：0）"
-    }
+    },
+    "defaultChatConfig": "Default Chat Config",
+    "defaultSystemMessage": "Default System Message",
+    "resetToDefault": "Reset To Default"
 }
