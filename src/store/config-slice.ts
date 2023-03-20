@@ -20,7 +20,7 @@ export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
   openConfig: false,
   theme: 'dark',
   autoTitle: false,
-  efaultChatConfig: _defaultChatConfig,
+  defaultChatConfig: _defaultChatConfig,
   defaultSystemMessage: _defaultSystemMessage,
   setOpenConfig: (openConfig: boolean) => {
     set((prev: ConfigSlice) => ({
