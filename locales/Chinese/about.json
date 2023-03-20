@@ -1,0 +1,26 @@
+{
+    "description": "Aiko ChatGPT 是一款网络应用程序，可让您使用 AikoAI 的 ChatGPT API",
+    "sourceCode": "AikoAI 是一个闭源项目，希望您不要介意这一点!!!",
+    "initiative": {
+        "description": "查看 <0><i>Telegram 中的 Aiko ChatGPT</i></0>!",
+        "link": "https://t.me/aiko_ai_bot"
+    },
+    "support": {
+        "title": "支持",
+        "paragraph1": "在 Aiko ChatGPT，我们努力为您提供有用和惊人的功能，全天候为您服务。就像任何项目一样，您的支持和动力将对帮助我们不断前进起到关键作用！",
+        "paragraph2": "如果您想支持我们，请考虑通过以下方法之一赞助我们。每一份贡献，无论多么微小，都有助于我们维护和改进我们的服务。",
+        "paragraph3": "感谢您成为我们社区的一部分，我们期待在未来为您提供更好的服务。",
+        "momo": "Momo 钱包",
+        "banking": "银行转账"
+    },
+    "telegramServer": {
+        "title": "Telegram 服务器",
+        "paragraph1": "目前我们不提供免费的 Telegram 机器人，它只是一个测试版本，将很快更新。",
+        "paragraph2": "要加入我们的服务器，只需单击以下链接：<0>https://t.me/aiko_ai_bot</0>。我们迫不及待地想见到你！"
+    },
+    "privacyStatement": {
+        "title": "隐私声明",
+        "paragraph1": "我们非常重视您的隐私，并致力于保护我们用户的隐私。我们不会以任何形式收集或存储您输入或从 AikoAI 服务器接收的任何文本。我们的源代码可供您检查以验证此声明。",
+        "paragraph2": "我们优先考虑您的 API 密钥的安全性，并且非常小心地处理它。如果您使用自己的 API 密钥，则您的密钥仅存储在您的浏览器上，从不与任何第三方实体共享。它仅用于访问 AikoAI API 的预期目的，而不用于任何其他未经授权的用途。"
+    }
+}
