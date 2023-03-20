@@ -1,0 +1,15 @@
+{
+    "securityMessage": "私たちはAPIキーのセキュリティを最優先に考え、最大限注意して扱っています。あなたのキーはあなたのブラウザにのみ保存され、第三者には決して共有されません。これは、AikoAI APIにアクセスするための目的にのみ使用され、他の不正な目的には使用されません。",
+    "apiEndpoint": {
+        "option": "無料で使用する",
+        "inputLabel": "APIエンドポイント",
+        "description": "<0>Ayaka</0>さんが提供してくれた無料のAPIエンドポイントをご利用ください: https://chatgpt-api.shn.hk/v1/"
+    },
+    "apiKey": {
+        "option": "自分のAPIキーを使用する",
+        "howTo": "自分のAPIキーを<0>こちら</0>で取得してください。",
+        "inputLabel": "APIキー"
+    },
+    "customEndpoint": "カスタムAPIエンドポイントを使用する",
+    "shareGPT": "https://sharegpt.churchless.tech/share/v1/chatを支えるAPIキー共有ツール<0>AikoCute</0>をチェックアウトしてください"
+}
