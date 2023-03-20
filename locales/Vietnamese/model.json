@@ -21,5 +21,8 @@
     "frequencyPenalty": {
         "label": "Hình phạt tần số",
         "description": "Số giữa -2,0 và 2,0. Các giá trị dương sẽ phạt các mã thông báo mới dựa trên tần suất hiện có của chúng trong văn bản cho đến nay, làm giảm khả năng mô hình lặp lại nguyên văn cùng một dòng. (Mặc định: 0)"
-    }
+    },
+    "defaultChatConfig": "Cấu hình trò chuyện mặc định",
+    "defaultSystemMessage": "Thông báo hệ thống mặc định",
+    "resetToDefault": "Đặt lại về mặc định"
 }
