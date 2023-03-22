@@ -13,7 +13,7 @@ const PromptLibraryMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === '/') {
         setIsModalOpen(true);
       }
