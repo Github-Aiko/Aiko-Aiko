@@ -30,6 +30,7 @@ const ChatContent = () => {
       ? state.chats[state.currentChatIndex].messages.length
       : 0
   );
+  const advancedMode = useStore((state) => state.advancedMode);
   const generating = useStore.getState().generating;
 
   const saveRef = useRef<HTMLDivElement>(null);
@@ -55,8 +56,8 @@ const ChatContent = () => {
             className='flex flex-col items-center text-sm dark:bg-gray-800 w-full'
             ref={saveRef}
           >
-            <ChatTitle />
-            {messages?.length === 0 && <NewMessageButton messageIndex={-1} />}
+            {advancedMode && <ChatTitle />}
+            {messages?.length === 0 && advancedMode && <NewMessageButton messageIndex={-1} />}
             {messages?.map((message, index) => (
               <React.Fragment key={index}>
                 <Message
@@ -64,7 +65,7 @@ const ChatContent = () => {
                   content={message.content}
                   messageIndex={index}
                 />
-                <NewMessageButton messageIndex={index} />
+                {advancedMode && <NewMessageButton messageIndex={index} />}
               </React.Fragment>
             ))}
           </div>
@@ -76,7 +77,7 @@ const ChatContent = () => {
             sticky
           />
           {error !== '' && (
-            <div className='relative py-2 px-3 w-3/5 mt-3 max-md:w-11/12 border rounded-md border-red-500 bg-red-500/10 error-notification'>
+            <div className='relative py-2 px-3 w-3/5 mt-3 max-md:w-11/12 border rounded-md border-red-500 bg-red-500/10'>
               <div className='text-gray-600 dark:text-gray-100 text-sm whitespace-pre-wrap'>
                 {error}
               </div>

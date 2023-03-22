@@ -5,7 +5,13 @@ import MessageContent from './MessageContent';
 
 import { Role } from '@type/chat';
 import RoleSelector from './RoleSelector';
+import useStore from '@store/store';
 
+// const backgroundStyle: { [role in Role]: string } = {
+//   user: 'dark:bg-gray-800',
+//   assistant: 'bg-gray-50 dark:bg-[#444654]',
+//   system: 'bg-gray-50 dark:bg-[#444654]',
+// };
 const backgroundStyle = ['dark:bg-gray-800', 'bg-gray-50 dark:bg-[#444654]'];
 
 const Message = React.memo(
@@ -20,6 +26,7 @@ const Message = React.memo(
     messageIndex: number;
     sticky?: boolean;
   }) => {
+    const advancedMode = useStore((state) => state.advancedMode);
     return (
       <div
         className={`w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group ${
@@ -29,11 +36,12 @@ const Message = React.memo(
         <div className='text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0'>
           <Avatar role={role} />
           <div className='w-[calc(100%-50px)] '>
-            <RoleSelector
-              role={role}
-              messageIndex={messageIndex}
-              sticky={sticky}
-            />
+            {advancedMode &&
+              <RoleSelector
+                role={role}
+                messageIndex={messageIndex}
+                sticky={sticky}
+              />}
             <MessageContent
               role={role}
               content={content}

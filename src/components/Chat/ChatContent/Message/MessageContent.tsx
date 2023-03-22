@@ -304,6 +304,7 @@ const EditView = ({
   const textareaRef = React.createRef<HTMLTextAreaElement>();
 
   const { t } = useTranslation();
+  const advancedMode = useStore((state) => state.advancedMode);
 
   const resetTextAreaHeight = () => {
     if (textareaRef.current) textareaRef.current.style.height = 'auto';
@@ -454,16 +455,18 @@ const EditViewButtons = React.memo(
             </button>
           )}
 
-          <button
-            className={`btn relative mr-2 ${
-              sticky ? 'btn-neutral' : 'btn-primary'
-            }`}
-            onClick={handleSave}
-          >
-            <div className='flex items-center justify-center gap-2'>
-              {t('save')}
-            </div>
-          </button>
+          {advancedMode && (
+            <button
+              className={`btn relative mr-2 ${
+                sticky ? 'btn-neutral' : 'btn-primary'
+              }`}
+              onClick={handleSave}
+            >
+              <div className='flex items-center justify-center gap-2'>
+                {t('save')}
+              </div>
+            </button>
+          )}
 
           {sticky || (
             <button
