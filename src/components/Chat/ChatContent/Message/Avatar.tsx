@@ -27,7 +27,7 @@ const UserAvatar = () => {
 const AssistantAvatar = () => {
   return (
     <img
-      src="https://aikoaiko.me/apple-touch-icon.png"
+      src="https://aiko.aikoaiko.me/apple-touch-icon.png"
       alt="Assistant Avatar"
       className="h-6 w-6 rounded-sm"
       style={{ backgroundColor: 'rgb(16, 163, 127)' }}
