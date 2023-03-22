@@ -34,12 +34,14 @@ const CodeBar = React.memo(
     const [isCopied, setIsCopied] = useState<boolean>(false);
 
     const copyCode = () => {
-      const range = document.createRange();
-      range.selectNode(codeRef.current);
-      window.getSelection()?.removeAllRanges();
-      window.getSelection()?.addRange(range);
-      document.execCommand('copy');
-      window.getSelection()?.removeAllRanges();
+      if (codeRef.current) {
+        const range = document.createRange();
+        range.selectNode(codeRef.current);
+        window.getSelection()?.removeAllRanges();
+        window.getSelection()?.addRange(range);
+        document.execCommand('copy');
+        window.getSelection()?.removeAllRanges();
+      }
     };
 
     return (
