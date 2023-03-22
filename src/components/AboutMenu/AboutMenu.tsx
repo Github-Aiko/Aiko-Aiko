@@ -85,8 +85,8 @@ const AboutMenu = () => {
                     />
                   </a>
                   <div className='flex gap-x-10 gap-y-4 flex-wrap justify-center'>
-                    <div className='flex flex-col items-center justify-center gap-1'>
-                      <div style="text-align: center;">
+                    <div className='flex flex-col items-center justify-center gap-1' style={{textAlign: 'center'}}>
+                      <div>
                         {t('support.momo', { ns: 'about' })} (Aiko)
                         <br/>
                         {t('support.stkmomo', { ns: 'about' })}
@@ -97,8 +97,8 @@ const AboutMenu = () => {
                         alt='Support us through Momo-wallet'
                       />
                     </div>
-                    <div className='flex flex-col items-center justify-center gap-1'>
-                      <div style="text-align: center;">
+                    <div className='flex flex-col items-center justify-center gap-1' style={{textAlign: 'center'}}>
+                      <div>
                         {t('support.banking', { ns: 'about' })} (Aiko)
                         <br/>
                         {t('support.stkbanking', { ns: 'about' })} (MB Bank)
