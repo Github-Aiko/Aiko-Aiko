@@ -93,7 +93,7 @@ const AboutMenu = () => {
                       </div>
                       <img
                         className='rounded-md w-32 h-32'
-                        src='https://chat.aikoaiko.me/payments/momo.png'
+                        src='https://aikoaiko.me/payments/momo.png'
                         alt='Support us through Momo-wallet'
                       />
                     </div>
@@ -105,7 +105,7 @@ const AboutMenu = () => {
                       </div>
                       <img
                         className='rounded-md w-32 h-32'
-                        src='https://chat.aikoaiko.me/payments/banking.png'
+                        src='https://aikoaiko.me/payments/banking.png'
                         alt='Support us through VietQR-Baning'
                       />
                     </div>
