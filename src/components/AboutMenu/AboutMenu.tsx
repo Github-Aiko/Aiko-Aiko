@@ -87,8 +87,8 @@ const AboutMenu = () => {
                   <div className='flex gap-x-10 gap-y-4 flex-wrap justify-center'>
                     <div className='flex flex-col items-center justify-center gap-1'>
                       <div>
-                        {t('support.momo', { ns: 'about' })} (Aiko)
-                        {t('support.stkmomo', { ns: 'about' })}  
+                        {t('support.momo', { ns: 'about' })} (Aiko) <br>
+                        {t('support.stkmomo', { ns: 'about' })}
                       </div>
                       
                       <img
@@ -99,8 +99,8 @@ const AboutMenu = () => {
                     </div>
                     <div className='flex flex-col items-center justify-center gap-1'>
                       <div>
-                        {t('support.banking', { ns: 'about' })} (Aiko)
-                        {t('support.stkbanking', { ns: 'about' })}
+                        {t('support.banking', { ns: 'about' })} (Aiko) <br>
+                        {t('support.stkbanking', { ns: 'about' })} (MB Bank)
                       </div>
                       <img
                         className='rounded-md w-32 h-32'
