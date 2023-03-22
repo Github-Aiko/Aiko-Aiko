@@ -11,12 +11,12 @@
     "export": "Export",
     "author": "Made by AikoCute",
     "about": "About & Sponsor",
-    "api": "API",
-    "personal": "Personal",
+    "api": "Packages",
+    "personal": "Plus",
     "free": "Free",
     "downloadChat": "Download Chat",
     "user": "User",
-    "assistant": "Assistant",
+    "assistant": "Aiko AI",
     "system": "System",
     "newChat": "New Chat",
     "lightMode": "Light Mode",
@@ -28,9 +28,5 @@
     "promptLibrary": "Prompt Library",
     "name": "Name",
     "search": "Search",
-    "morePrompts": "You can find more prompts here: ",
-    "postOnShareGPT": {
-        "title": "Post on ShareGPT",
-        "warning": "Please be aware that by posting your conversation on ShareGPT, it will become publicly accessible and viewable to anyone. Once posted, the conversation cannot be hidden or deleted, and may be archived or shared by others. We advise you to consider carefully and avoid sharing sensitive or private information on this platform."
-    }
+    "morePrompts": "You can find more prompts here: "
 }
