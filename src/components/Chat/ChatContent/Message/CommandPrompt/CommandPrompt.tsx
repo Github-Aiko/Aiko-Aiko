@@ -11,8 +11,8 @@ const CommandPrompt = ({
 }) => {
   const { t } = useTranslation();
   const prompts = useStore((state) => state.prompts);
-  const [dropDown, setDropDown] = useState<boolean>(false);
   const [_prompts, _setPrompts] = useState<Prompt[]>(prompts);
+  const [dropDown, setDropDown] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const CommandPrompt = ({
       <button
         className='btn btn-neutral btn-small'
         onClick={() => setDropDown(!dropDown)}
+        onFocus={() => setDropDown(true)}
       >
         /
       </button>
