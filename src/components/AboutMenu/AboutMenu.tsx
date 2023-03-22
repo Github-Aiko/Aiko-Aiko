@@ -87,10 +87,10 @@ const AboutMenu = () => {
                   <div className='flex gap-x-10 gap-y-4 flex-wrap justify-center'>
                     <div className='flex flex-col items-center justify-center gap-1'>
                       <div>
-                        {t('support.momo', { ns: 'about' })} (Aiko) <br>
+                        {t('support.momo', { ns: 'about' })} (Aiko)
+                        <br/>
                         {t('support.stkmomo', { ns: 'about' })}
                       </div>
-                      
                       <img
                         className='rounded-md w-32 h-32'
                         src='https://chat.aikoaiko.me/payments/momo.png'
@@ -99,9 +99,11 @@ const AboutMenu = () => {
                     </div>
                     <div className='flex flex-col items-center justify-center gap-1'>
                       <div>
-                        {t('support.banking', { ns: 'about' })} (Aiko) <br>
+                        {t('support.banking', { ns: 'about' })} (Aiko)
+                        <br/>
                         {t('support.stkbanking', { ns: 'about' })} (MB Bank)
                       </div>
+                    </div>
                       <img
                         className='rounded-md w-32 h-32'
                         src='https://chat.aikoaiko.me/payments/banking.png'
