@@ -9,14 +9,14 @@
     "clearConversation": "Clear Conversation",
     "import": "Import",
     "export": "Export",
-    "author": "Made by AikoCute",
+    "author": "Made by Jing Hua",
     "about": "About & Sponsor",
-    "api": "Packages",
-    "personal": "Plus",
+    "api": "API",
+    "personal": "Personal",
     "free": "Free",
     "downloadChat": "Download Chat",
     "user": "User",
-    "assistant": "Aiko AI",
+    "assistant": "Assistant",
     "system": "System",
     "newChat": "New Chat",
     "lightMode": "Light Mode",
@@ -28,5 +28,9 @@
     "promptLibrary": "Prompt Library",
     "name": "Name",
     "search": "Search",
-    "morePrompts": "You can find more prompts here: "
+    "morePrompts": "You can find more prompts here: ",
+    "postOnShareGPT": {
+        "title": "Post on ShareGPT",
+        "warning": "Please be aware that by posting your conversation on ShareGPT, it will become publicly accessible and viewable to anyone. Once posted, the conversation cannot be hidden or deleted, and may be archived or shared by others. We advise you to consider carefully and avoid sharing sensitive or private information on this platform."
+    }
 }

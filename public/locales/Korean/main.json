@@ -29,4 +29,8 @@
     "name": "이름",
     "search": "검색",
     "morePrompts": "더 많은 프롬프트는 여기에서 찾을 수 있습니다 : "
+    "postOnShareGPT": {
+        "title": "Post on ShareGPT",
+        "warning": "Please be aware that by posting your conversation on ShareGPT, it will become publicly accessible and viewable to anyone. Once posted, the conversation cannot be hidden or deleted, and may be archived or shared by others. We advise you to consider carefully and avoid sharing sensitive or private information on this platform."
+    }
 }

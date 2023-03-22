@@ -10,6 +10,7 @@ import CrossIcon from '@icon/CrossIcon';
 
 import useSubmit from '@hooks/useSubmit';
 import DownloadChat from './DownloadChat';
+import ShareGPT from '@components/ShareGPT';
 
 const ChatContent = () => {
   const inputRole = useStore((state) => state.inputRole);
@@ -76,7 +77,7 @@ const ChatContent = () => {
             sticky
           />
           {error !== '' && (
-            <div className='relative py-2 px-3 w-3/5 mt-3 max-md:w-11/12 border rounded-md border-red-500 bg-red-500/10 error-notification'>
+            <div className='relative py-2 px-3 w-3/5 mt-3 max-md:w-11/12 border rounded-md border-red-500 bg-red-500/10'>
               <div className='text-gray-600 dark:text-gray-100 text-sm whitespace-pre-wrap'>
                 {error}
               </div>
@@ -90,9 +91,12 @@ const ChatContent = () => {
               </div>
             </div>
           )}
-          <div className='mt-4'>
+          <div className='mt-4 flex gap-4'>
             {useStore.getState().generating || (
-              <DownloadChat saveRef={saveRef} />
+              <>
+                <DownloadChat saveRef={saveRef} />
+                <ShareGPT />
+              </>
             )}
           </div>
           <div className='w-full h-36'></div>
