@@ -11,6 +11,21 @@ import { v4 as uuidv4 } from 'uuid';
 const PromptLibraryMenu = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === '/') {
+        setIsModalOpen(true);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
   return (
     <div>
       <button className='btn btn-neutral' onClick={() => setIsModalOpen(true)}>
