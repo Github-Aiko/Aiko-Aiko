@@ -20,7 +20,7 @@ export interface EventSourceDataChoices {
 export interface ShareGPTSubmitBodyInterface {
   avatarUrl: string;
   items: {
-    from: 'AikoAI' | 'User';
+    from: 'gpt' | 'human';
     value: string;
   }[];
 }
