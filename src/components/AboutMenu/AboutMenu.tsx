@@ -103,7 +103,6 @@ const AboutMenu = () => {
                         <br/>
                         {t('support.stkbanking', { ns: 'about' })} (MB Bank)
                       </div>
-                    </div>
                       <img
                         className='rounded-md w-32 h-32'
                         src='https://chat.aikoaiko.me/payments/banking.png'
