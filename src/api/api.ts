@@ -1,5 +1,4 @@
 import { ConfigInterface, MessageInterface } from '@type/chat';
-import { ShareGPTSubmitBodyInterface } from '@type/api';
 
 export const getChatCompletion = async (
   endpoint: string,
@@ -76,19 +75,4 @@ export const getChatCompletionStream = async (
 
   const stream = response.body;
   return stream;
-};
-
-export const submitShareGPT = async (body: ShareGPTSubmitBodyInterface) => {
-  const request = await fetch('https://sharegpt.com/api/conversations', {
-    body: JSON.stringify(body),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
-
-  const response = await request.json();
-  const { id } = response;
-  const url = `https://shareg.pt/${id}`;
-  window.open(url, '_blank');
 };
