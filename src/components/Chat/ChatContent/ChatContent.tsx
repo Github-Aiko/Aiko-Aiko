@@ -91,12 +91,13 @@ const ChatContent = () => {
               </div>
             </div>
           )}
-          {advancedMode &&
-          <div className='mt-4'>
-            {useStore.getState().generating || (
-              <DownloadChat saveRef={saveRef} />
-            )}}
-          </div>
+          {advancedMode && (
+            <div className='mt-4'>
+              {useStore.getState().generating || (
+                <DownloadChat saveRef={saveRef} />
+              )}
+            </div>
+          )}
           <div className='w-full h-36'></div>
         </div>
       </ScrollToBottom>
