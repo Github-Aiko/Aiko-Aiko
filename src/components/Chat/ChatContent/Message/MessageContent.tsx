@@ -41,10 +41,11 @@ const MessageContent = ({
   sticky?: boolean;
 }) => {
   const [isEdit, setIsEdit] = useState<boolean>(sticky);
+  const advancedMode = useStore((state) => state.advancedMode);
 
   return (
     <div className='relative flex flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]'>
-      <div className='flex flex-grow flex-col gap-3'></div>
+      {advancedMode && <div className='flex flex-grow flex-col gap-3'></div>}
       {isEdit ? (
         <EditView
           content={content}
@@ -304,7 +305,6 @@ const EditView = ({
   const textareaRef = React.createRef<HTMLTextAreaElement>();
 
   const { t } = useTranslation();
-  const advancedMode = useStore((state) => state.advancedMode);
 
   const resetTextAreaHeight = () => {
     if (textareaRef.current) textareaRef.current.style.height = 'auto';
@@ -440,6 +440,7 @@ const EditViewButtons = React.memo(
     _setContent: React.Dispatch<React.SetStateAction<string>>;
   }) => {
     const { t } = useTranslation();
+    const advancedMode = useStore((state) => state.advancedMode);
 
     return (
       <div className='flex'>
