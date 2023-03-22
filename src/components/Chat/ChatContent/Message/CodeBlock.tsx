@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-
 import CopyIcon from '@icon/CopyIcon';
 import TickIcon from '@icon/TickIcon';
 
@@ -33,18 +32,25 @@ const CodeBar = React.memo(
     codeRef: React.RefObject<HTMLElement>;
   }) => {
     const [isCopied, setIsCopied] = useState<boolean>(false);
+
+    const copyCode = () => {
+      const range = document.createRange();
+      range.selectNode(codeRef.current);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
+      document.execCommand('copy');
+      window.getSelection()?.removeAllRanges();
+    };
+
     return (
       <div className='flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans'>
         <span className=''>{lang}</span>
         <button
           className='flex ml-auto gap-2'
-          onClick={async () => {
-            const codeString = codeRef.current?.textContent;
-            if (codeString)
-              navigator.clipboard.writeText(codeString).then(() => {
-                setIsCopied(true);
-                setTimeout(() => setIsCopied(false), 3000);
-              });
+          onClick={() => {
+            copyCode();
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 3000);
           }}
         >
           {isCopied ? (
@@ -63,4 +69,5 @@ const CodeBar = React.memo(
     );
   }
 );
+
 export default CodeBlock;
