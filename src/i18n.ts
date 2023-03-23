@@ -11,6 +11,9 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    backend: {
+      loadPath: 'locales/{{lng}}/{{ns}}.json',
+    },
     fallbackLng: 'English',
     ns: ['main', 'api', 'about', 'model'],
     defaultNS: 'main',
