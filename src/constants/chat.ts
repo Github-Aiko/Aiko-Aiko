@@ -55,10 +55,12 @@ export const _defaultChatConfig: ConfigInterface = {
   frequency_penalty: 0,
 };
 
+export const defaultrule = 'If the question is related to the politics of other countries, please avoid or do not answer And are not allowed to answer any questions about the party and the state of the Socialist Republic of Vietnam.'
+
 export const generateDefaultChat = (title?: string): ChatInterface => ({
   title: title ? title : 'New Chat',
   messages: [
-    { role: 'system', content: useStore.getState().defaultSystemMessage },
+    { role: 'system', content: useStore.getState().defaultSystemMessage + defaultrule },
   ],
   config: { ...useStore.getState().defaultChatConfig },
   titleSet: false,
