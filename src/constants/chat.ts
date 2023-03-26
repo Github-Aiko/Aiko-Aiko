@@ -59,9 +59,10 @@ export const defaultrule = 'Rule: If the question is related to the politics of 
 
 export const generateDefaultChat = (title?: string): ChatInterface => ({
   title: title ? title : 'New Chat',
-  messages: [
-    { role: 'system', content: useStore.getState().defaultSystemMessage + defaultrule },
-  ],
+  messages:
+    useStore.getState().defaultSystemMessage.length > 0
+      ? [{ role: 'system', content: useStore.getState().defaultSystemMessage + defaultrule}]
+      : [],
   config: { ...useStore.getState().defaultChatConfig },
   titleSet: false,
 });
