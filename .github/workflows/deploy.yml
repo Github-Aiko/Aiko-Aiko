@@ -5,22 +5,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
 
@@ -35,22 +25,12 @@ jobs:
       - name: Build website
         run: yarn build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses:
-          actions/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist
-          clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-          keep_history: true
-          commit_message: "Deploy to GitHub Pages"
-          allow_empty_commit: true
-          push_options: "--force"
-          cname: ${{ secrets.CNAME }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          cname: 'aiko.aikoaiko.me'
+          enable_jekyll: true
