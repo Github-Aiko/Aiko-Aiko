@@ -55,6 +55,7 @@ const useStore = create<StoreState>()(
         advancedMode: state.advancedMode,
         prompts: state.prompts,
         defaultChatConfig: state.defaultChatConfig,
+        hideMenuOptions: state.hideMenuOptions,
         defaultSystemMessage: state.defaultSystemMessage,
       }),
       version: 6,
