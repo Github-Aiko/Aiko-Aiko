@@ -1,6 +1,6 @@
 import React from 'react';
+import useStore from '@store/store';
 
-import Account from './Account';
 import ClearConversation from './ClearConversation';
 import Api from './Api';
 import Me from './Me';
