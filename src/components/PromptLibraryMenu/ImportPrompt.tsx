@@ -64,7 +64,7 @@ const ImportPrompt = () => {
         className='btn btn-small btn-primary mt-3'
         onClick={handleFileUpload}
       >
-        {t('import')}
+        {t('import')} (CSV)
       </button>
       {alert && (
         <div

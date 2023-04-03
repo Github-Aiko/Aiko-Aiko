@@ -18,7 +18,7 @@ const ExportPrompt = () => {
           exportPrompts(prompts);
         }}
       >
-        {t('export')}
+        {t('export')} (CSV)
       </button>
     </div>
   );
