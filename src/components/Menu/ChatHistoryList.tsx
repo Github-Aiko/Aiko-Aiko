@@ -33,7 +33,9 @@ const ChatHistoryList = () => {
   const [filter, setFilter] = useState<string>('');
 
   const chatsRef = useRef<ChatInterface[]>(useStore.getState().chats || []);
-  const foldersRef = useRef<FolderCollection>(useStore.getState().folders);  const filterRef = useRef<string>(filter);
+  const foldersRef = useRef<FolderCollection>(useStore.getState().folders);
+  const filterRef = useRef<string>(filter);
+
   const updateFolders = useRef(() => {
     const _folders: ChatHistoryFolderInterface = {};
     const _noFolders: ChatHistoryInterface[] = [];
@@ -51,6 +53,7 @@ const ChatHistoryList = () => {
         const _chatFolderName = chat.folder
           ? folders[chat.folder].name.toLowerCase()
           : '';
+
         if (
           !_chatTitle.includes(_filterLowerCase) &&
           !_chatFolderName.includes(_filterLowerCase) &&
@@ -59,7 +62,7 @@ const ChatHistoryList = () => {
           return;
 
         if (!chat.folder) {
-          _noFolders.push({ title: chat.title, index: index, id: chat.id });;
+          _noFolders.push({ title: chat.title, index: index, id: chat.id });
         } else {
           if (!_folders[chat.folder]) _folders[_chatFolderName] = [];
           _folders[chat.folder].push({
@@ -88,7 +91,7 @@ const ChatHistoryList = () => {
         chatsRef.current = state.chats;
       } else if (state.folders !== foldersRef.current) {
         updateFolders();
-        foldersRef.current = state.folders
+        foldersRef.current = state.folders;
       }
     });
   }, []);
@@ -99,8 +102,10 @@ const ChatHistoryList = () => {
       currentChatIndex >= 0 &&
       currentChatIndex < chatTitles.length
     ) {
+      // set title
       document.title = chatTitles[currentChatIndex];
 
+      // expand folder of current chat
       const chats = useStore.getState().chats;
       if (chats) {
         const folderId = chats[currentChatIndex].folder;
