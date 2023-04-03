@@ -93,9 +93,9 @@ const ChatContent = () => {
             </div>
           )}
           <div className='mt-4 flex gap-4 flex-wrap justify-center'>
-            {useStore.getState().generating || (
+            {advancedMode &&useStore.getState().generating || (
               <>
-                <DownloadChat saveRef={saveRef} />
+                 <DownloadChat saveRef={saveRef} />
                 <CloneChat />
               </>
             )}

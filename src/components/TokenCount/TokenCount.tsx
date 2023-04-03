@@ -4,10 +4,12 @@ import { shallow } from 'zustand/shallow';
 
 import countTokens from '@utils/messageUtils';
 import { modelCost } from '@constants/chat';
+import useStore from '@store/store';
 
 const TokenCount = React.memo(() => {
   const [tokenCount, setTokenCount] = useState<number>(0);
   const generating = useStore((state) => state.generating);
+  const 
   const messages = useStore(
     (state) =>
       state.chats ? state.chats[state.currentChatIndex].messages : [],
@@ -19,7 +21,8 @@ const TokenCount = React.memo(() => {
       ? state.chats[state.currentChatIndex].config.model
       : 'gpt-3.5-turbo'
   );
-
+  
+  const advancedMode = useStore((state) => state.advancedMode);
   const cost = useMemo(() => {
     const price = modelCost[model].price * (tokenCount / modelCost[model].unit);
     return price.toPrecision(3);
@@ -30,9 +33,9 @@ const TokenCount = React.memo(() => {
   }, [messages, generating]);
 
   return (
-    <div className='absolute top-[-16px] right-0'>
+     <div className='absolute top-[-16px] right-0'>
       <div className='text-xs italic text-gray-900 dark:text-gray-300'>
-        Tokens: {tokenCount} (${cost})
+        {advancedMode && Tokens: {tokenCount} (${cost})}
       </div>
     </div>
   );
