@@ -8,7 +8,6 @@ import { modelCost } from '@constants/chat';
 const TokenCount = React.memo(() => {
   const [tokenCount, setTokenCount] = useState<number>(0);
   const generating = useStore((state) => state.generating);
-  const 
   const messages = useStore(
     (state) =>
       state.chats ? state.chats[state.currentChatIndex].messages : [],
