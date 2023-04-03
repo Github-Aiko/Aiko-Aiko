@@ -7,8 +7,6 @@ import ExportIcon from '@icon/ExportIcon';
 import downloadFile from '@utils/downloadFile';
 import { getToday } from '@utils/date';
 import PopupModal from '@components/PopupModal';
-import { validateAndFixChats } from '@utils/chat';
-import { ChatInterface } from '@type/chat';
 import {
   isLegacyImport,
   validateAndFixChats,
@@ -51,9 +49,7 @@ const ImportExportChat = () => {
 const ImportChat = () => {
   const { t } = useTranslation();
   const setChats = useStore.getState().setChats;
-  const setFoldersName = useStore.getState().setFoldersName;
   const setFolders = useStore.getState().setFolders;
-  const setFoldersExpanded = useStore.getState().setFoldersExpanded;
   const inputRef = useRef<HTMLInputElement>(null);
   const [alert, setAlert] = useState<{
     message: string;
@@ -102,28 +98,26 @@ const ImportChat = () => {
                 },
                 {}
               );
-               // increment the order of existing folders
-               const offset = parsedFolders.length;
 
-               const updatedFolders = useStore.getState().folders;
-               Object.values(updatedFolders).forEach((f) => (f.order += offset));
- 
-               setFolders({ ...newFolders, ...updatedFolders });
- 
-               // import chats
-               const prevChats = useStore.getState().chats;
-               if (prevChats) {
-                 const updatedChats: ChatInterface[] = JSON.parse(
-                   JSON.stringify(prevChats)
-                 );
-                 setChats(parsedData.concat(updatedChats));
-               } else {
-                setAlert({
-                  message: 'Invalid chats data format',
-                  success: false,
-                });
-               }
-               setAlert({ message: 'Succesfully imported!', success: true });
+              // increment the order of existing folders
+              const offset = parsedFolders.length;
+
+              const updatedFolders = useStore.getState().folders;
+              Object.values(updatedFolders).forEach((f) => (f.order += offset));
+
+              setFolders({ ...newFolders, ...updatedFolders });
+
+              // import chats
+              const prevChats = useStore.getState().chats;
+              if (prevChats) {
+                const updatedChats: ChatInterface[] = JSON.parse(
+                  JSON.stringify(prevChats)
+                );
+                setChats(parsedData.concat(updatedChats));
+              } else {
+                setChats(parsedData);
+              }
+              setAlert({ message: 'Succesfully imported!', success: true });
             } else {
               setAlert({
                 message: 'Invalid chats data format',
@@ -210,6 +204,7 @@ const ImportChat = () => {
 
 const ExportChat = () => {
   const { t } = useTranslation();
+
   return (
     <div className='mt-6'>
       <div className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
