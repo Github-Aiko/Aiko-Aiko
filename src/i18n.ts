@@ -5,23 +5,11 @@ import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 export const i18nLanguages = [
-  // 'ar',
-  'da',
-  'en',
-  'en-GB',
-  'en-US',
-  'es',
-  'fr',
-  'fr-FR',
-  'ja',
-  'ms',
-  'nb',
-  'sv',
-  // 'ug',
-  'yue',
-  'zh-CN',
-  'zh-HK',
-  'zh-TW',
+  'English',
+  'Vietnamese',
+  'Chinese',
+  'Japanese',
+  'Korean',
 ];
 
 i18n
@@ -33,7 +21,7 @@ i18n
       loadPath: 'locales/{{lng}}/{{ns}}.json',
     },
     fallbackLng: {
-      default: ['en'],
+      default: ['English'],
     },
     ns: ['main', 'api', 'about', 'model'],
     defaultNS: 'main',

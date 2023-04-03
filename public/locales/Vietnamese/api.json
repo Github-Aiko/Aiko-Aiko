@@ -1,15 +1,15 @@
 {
-    "securityMessage": "Chúng tôi ưu tiên bảo mật khóa API của bạn và xử lý khóa đó một cách cẩn trọng nhất. Khóa của bạn được lưu trữ độc quyền trên trình duyệt của bạn và không bao giờ được chia sẻ với bất kỳ tổ chức bên thứ ba nào. Nó chỉ được sử dụng cho mục đích truy cập API AikoAI chứ không phải cho bất kỳ mục đích sử dụng trái phép nào khác.",
+    "securityMessage": "We prioritize the security of your API key and handle it with utmost care. Your key is exclusively stored on your browser and never shared with any third-party entity. It is solely used for the intended purpose of accessing the AikoAI API and not for any other unauthorized use.",
     "apiEndpoint": {
-        "option": "Sử dụng miễn phí",
         "inputLabel": "API Endpoint",
-        "description": "Cảm ơn <0>Ayaka</0> vì đã cung cấp điểm cuối API miễn phí: https://chatgpt-api.shn.hk/v1/"
+        "description": "When you choose an unofficial API endpoint, it functions as a proxy. A proxy works by acting as an intermediary between your device and the destination server, in this case, the AikoAI API. By doing so, it enables you to access the AikoAI API in regions where it might otherwise be restricted.",
+        "warn": "Additionally, if you provide a custom API endpoint that grants free access to the AikoAI API, you can use ChatGPT without the need to supply an API key by simply leaving the API key field blank. However, it's crucial to be cautious when using third-party API endpoints, as untrustworthy ones may log your personal information in the conversations. Always verify the reliability of an API endpoint before using it to protect your privacy and security."
     },
     "apiKey": {
-        "option": "Use your API key",
-        "howTo": "Nhận khóa API Plus của bạn <0>tại đây</0>",
+        "howTo": "Get your Plus API key <0>here</0>.",
         "inputLabel": "API Key"
     },
-    "customEndpoint": "Sử dụng điểm cuối API tùy chỉnh",
-    "shareGPT": "Thanh toán <0>AikoCute</0>, một công cụ chia sẻ khóa API hỗ trợ https://sharegpt.churchless.tech/share/v1/chat"
+    "customEndpoint": "Use custom API endpoint",
+    "advancedConfig": "View advanced API configuration <0>here</0>",
+    "noApiKeyWarning": "No API key supplied! Please check your API settings."
 }

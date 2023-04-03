@@ -10,8 +10,9 @@ const dateString =
   ('0' + date.getDate()).slice(-2);
 
 // default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
-export const _defaultSystemMessage = `You are ChatGPT, a large language model trained by OpenAI.
-Carefully heed the user's instructions. 
+export const _defaultSystemMessage = `You are AikoAI, a large language model trained by AikoCute.
+Carefully heed the user's instructions.
+Knowledge cutoff: 03-2023. 
 Respond using Markdown.`;
 
 export const modelOptions: ModelOptions[] = [

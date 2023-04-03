@@ -1,15 +1,15 @@
 {
-    "securityMessage": "API 키의 보안을 우선시하고 최대한 주의하여 처리합니다. 키는 브라우저에 독점적으로 저장되며 제3 자 개체와 공유되지 않습니다. 그것은 AikoAI API에 액세스하는 목적으로만 사용되고 다른 무단 사용을 위해서는 사용되지 않습니다.",
+    "securityMessage": "We prioritize the security of your API key and handle it with utmost care. Your key is exclusively stored on your browser and never shared with any third-party entity. It is solely used for the intended purpose of accessing the AikoAI API and not for any other unauthorized use.",
     "apiEndpoint": {
-        "option": "무료로 사용",
-        "inputLabel": "API 엔드포인트",
-        "description": "<0>Ayaka</0>에게 무료 API 엔드포인트 제공에 감사드립니다: https://chatgpt-api.shn.hk/v1/"
+        "inputLabel": "API Endpoint",
+        "description": "When you choose an unofficial API endpoint, it functions as a proxy. A proxy works by acting as an intermediary between your device and the destination server, in this case, the AikoAI API. By doing so, it enables you to access the AikoAI API in regions where it might otherwise be restricted.",
+        "warn": "Additionally, if you provide a custom API endpoint that grants free access to the AikoAI API, you can use ChatGPT without the need to supply an API key by simply leaving the API key field blank. However, it's crucial to be cautious when using third-party API endpoints, as untrustworthy ones may log your personal information in the conversations. Always verify the reliability of an API endpoint before using it to protect your privacy and security."
     },
     "apiKey": {
-        "option": "자체 API 키 사용",
-        "howTo": "개인 API 키를 <0>여기</0>에서 가져옵니다",
-        "inputLabel": "API 키"
+        "howTo": "Get your Plus API key <0>here</0>.",
+        "inputLabel": "API Key"
     },
-    "customEndpoint": "사용자 정의 API 엔드포인트 사용",
-    "shareGPT": "<0>AikoCute</0>를 확인하고 https://sharegpt.churchless.tech/share/v1/chat을 구동하는 API 키 공유 도구입니다."
+    "customEndpoint": "Use custom API endpoint",
+    "advancedConfig": "View advanced API configuration <0>here</0>",
+    "noApiKeyWarning": "No API key supplied! Please check your API settings."
 }
