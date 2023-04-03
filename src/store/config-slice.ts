@@ -11,6 +11,8 @@ export interface ConfigSlice {
   advancedMode: boolean;
   defaultChatConfig: ConfigInterface;
   defaultSystemMessage: string;
+  hideSideMenu: boolean;
+  enterToSubmit: boolean;
   setOpenConfig: (openConfig: boolean) => void;
   setTheme: (theme: Theme) => void;
   setAutoTitle: (autoTitle: boolean) => void;
@@ -18,14 +20,18 @@ export interface ConfigSlice {
   setDefaultChatConfig: (defaultChatConfig: ConfigInterface) => void;
   setDefaultSystemMessage: (defaultSystemMessage: string) => void;
   setHideMenuOptions: (hideMenuOptions: boolean) => void;
+  setHideSideMenu: (hideSideMenu: boolean) => void;
+  setEnterToSubmit: (enterToSubmit: boolean) => void;
 }
 
 export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
   openConfig: false,
   theme: 'dark',
   hideMenuOptions: false,
-  autoTitle: true,
-  advancedMode: false,
+  hideSideMenu: false,
+  autoTitle: false,
+  enterToSubmit: true,
+  advancedMode: true,
   defaultChatConfig: _defaultChatConfig,
   defaultSystemMessage: _defaultSystemMessage,
   setOpenConfig: (openConfig: boolean) => {
@@ -68,6 +74,18 @@ export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
     set((prev: ConfigSlice) => ({
       ...prev,
       hideMenuOptions: hideMenuOptions,
+    }));
+  },
+  setHideSideMenu: (hideSideMenu: boolean) => {
+    set((prev: ConfigSlice) => ({
+      ...prev,
+      hideSideMenu: hideSideMenu,
+    }));
+  },
+  setEnterToSubmit: (enterToSubmit: boolean) => {
+    set((prev: ConfigSlice) => ({
+      ...prev,
+      enterToSubmit: enterToSubmit,
     }));
   },
 });

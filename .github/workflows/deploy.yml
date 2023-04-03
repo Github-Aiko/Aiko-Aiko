@@ -42,9 +42,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PAGES_BRANCH: gh-pages
-          PAGES_DIR: ./dist
-          CNAME: 'aiko.aikoaiko.me'
-          BUILD_SCRIPT: yarn build

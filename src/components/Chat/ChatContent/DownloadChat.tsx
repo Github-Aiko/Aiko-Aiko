@@ -6,7 +6,7 @@ import {
   chatToMarkdown,
   downloadImg,
   downloadMarkdown,
-  downloadPDF,
+  // downloadPDF,
   htmlToImg,
 } from '@utils/chat';
 import ImageIcon from '@icon/ImageIcon';
@@ -58,7 +58,7 @@ const DownloadChat = React.memo(
                 <ImageIcon />
                 Image
               </button>
-              <button
+              {/* <button
                 className='btn btn-neutral gap-2'
                 onClick={async () => {
                   if (saveRef && saveRef.current) {
@@ -79,7 +79,7 @@ const DownloadChat = React.memo(
               >
                 <PdfIcon />
                 PDF
-              </button>
+              </button> */}
               <button
                 className='btn btn-neutral gap-2'
                 onClick={async () => {

@@ -26,6 +26,7 @@ import useSubmit from '@hooks/useSubmit';
 import { ChatInterface } from '@type/chat';
 
 import PopupModal from '@components/PopupModal';
+import TokenCount from '@components/TokenCount';
 import CommandPrompt from './CommandPrompt';
 import CodeBlock from './CodeBlock';
 import { codeLanguageSubset } from '@constants/chat';
@@ -134,7 +135,7 @@ const ContentView = React.memo(
 
     return (
       <>
-        <div className='markdown prose w-full break-words dark:prose-invert dark'>
+        <div className='markdown prose w-full md:max-w-full break-words dark:prose-invert dark share-gpt-message'>
           <ReactMarkdown
             remarkPlugins={[
               remarkGfm,
@@ -172,7 +173,7 @@ const ContentView = React.memo(
               {messageIndex !== lastMessageIndex && (
                 <DownButton onClick={handleMoveDown} />
               )}
-              
+
               <CopyButton onClick={handleCopy} />
               <EditButton setIsEdit={setIsEdit} />
               <DeleteButton setIsDelete={setIsDelete} />
@@ -286,6 +287,7 @@ const UpButton = ({
     />
   );
 };
+
 const RefreshButton = ({
   onClick,
 }: {
@@ -329,6 +331,7 @@ const EditView = ({
   const inputRole = useStore((state) => state.inputRole);
   const setChats = useStore((state) => state.setChats);
   const currentChatIndex = useStore((state) => state.currentChatIndex);
+  const advancedMode = useStore((state) => state.advancedMode);
 
   const [_content, _setContent] = useState<string>(content);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -341,19 +344,36 @@ const EditView = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter') {
-      if (e.shiftKey || e.ctrlKey) {
-        // Nếu người dùng nhấn Shift+Enter thì cho phép xuống dòng
-        return;
-      } else {
-        // Nếu người dùng chỉ nhấn Enter thì submit form
-        e.preventDefault();
-        if (sticky) {
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|playbook|silk/i.test(
+        navigator.userAgent
+      );
+
+    if (e.key === 'Enter' && !isMobile) {
+      const enterToSubmit = useStore.getState().enterToSubmit;
+      if (sticky) {
+        if (
+          (enterToSubmit && !e.shiftKey) ||
+          (!enterToSubmit && (e.ctrlKey || e.shiftKey))
+        ) {
+          e.preventDefault();
           handleSaveAndSubmit();
           resetTextAreaHeight();
-        } else {
-          handleSave();
         }
+      } else if (!advancedMode) {
+        if (
+          (enterToSubmit && !e.shiftKey) ||
+          (!enterToSubmit && (e.ctrlKey || e.shiftKey))
+        ) {
+          e.preventDefault();
+          setIsModalOpen(true);
+        }
+      } else {
+        if (e.ctrlKey && e.shiftKey) {
+          e.preventDefault();
+          handleSaveAndSubmit();
+          resetTextAreaHeight();
+        } else if (e.ctrlKey || e.shiftKey) handleSave();
       }
     }
   };
@@ -523,6 +543,7 @@ const EditViewButtons = React.memo(
             </button>
           )}
         </div>
+        {sticky && <TokenCount />}
         <CommandPrompt _setContent={_setContent} />
       </div>
     );

@@ -7,9 +7,10 @@ import SettingIcon from '@icon/SettingIcon';
 import ThemeSwitcher from '@components/Menu/MenuOptions/ThemeSwitcher';
 import LanguageSelector from '@components/LanguageSelector';
 import AutoTitleToggle from './AutoTitleToggle';
-import PromptLibraryMenu from '@components/PromptLibraryMenu';
 import AdvancedModeToggle from './AdvencedModeToggle';
+import PromptLibraryMenu from '@components/PromptLibraryMenu';
 import ChatConfigMenu from '@components/ChatConfigMenu';
+import EnterToSubmitToggle from './EnterToSubmitToggle';
 
 const SettingsMenu = () => {
   const { t } = useTranslation();
@@ -39,8 +40,11 @@ const SettingsMenu = () => {
           <div className='p-6 border-b border-gray-200 dark:border-gray-600 flex flex-col items-center gap-4'>
             <LanguageSelector />
             <ThemeSwitcher />
-            <AutoTitleToggle />
-            <AdvancedModeToggle />
+            <div className='flex flex-col gap-3'>
+              <AutoTitleToggle />
+              <EnterToSubmitToggle />
+              <AdvancedModeToggle />
+            </div>
             <PromptLibraryMenu />
             <ChatConfigMenu />
           </div>
