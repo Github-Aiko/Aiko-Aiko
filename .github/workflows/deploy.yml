@@ -42,3 +42,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact: ./dist
+          branch: gh-pages
+          folder: ./dist
+          keep-history: true
+          commit-message: "Deploy to GitHub Pages"
+          cname: 'aiko.aikoaiko.me'
