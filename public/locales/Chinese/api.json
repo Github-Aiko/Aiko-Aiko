@@ -1,15 +1,15 @@
 {
-    "securityMessage": "We prioritize the security of your API key and handle it with utmost care. Your key is exclusively stored on your browser and never shared with any third-party entity. It is solely used for the intended purpose of accessing the AikoAI API and not for any other unauthorized use.",
+    "securityMessage": "我们优先考虑您的API密钥的安全，并且非常小心地处理它。您的密钥仅存储在您的浏览器上，绝不与任何第三方实体共享。它仅用于访问AikoAI API的既定目的，而不是用于任何其他未经授权的用途。",
     "apiEndpoint": {
-        "inputLabel": "API Endpoint",
-        "description": "When you choose an unofficial API endpoint, it functions as a proxy. A proxy works by acting as an intermediary between your device and the destination server, in this case, the AikoAI API. By doing so, it enables you to access the AikoAI API in regions where it might otherwise be restricted.",
-        "warn": "Additionally, if you provide a custom API endpoint that grants free access to the AikoAI API, you can use ChatGPT without the need to supply an API key by simply leaving the API key field blank. However, it's crucial to be cautious when using third-party API endpoints, as untrustworthy ones may log your personal information in the conversations. Always verify the reliability of an API endpoint before using it to protect your privacy and security."
+        "inputLabel": "API终结点",
+        "description": "当您选择非官方API终结点时，它作为代理功能。代理通过在您的设备和目标服务器之间充当中介来工作，即在本例中为AikoAI API。这样做可以使您在其他地区限制访问AikoAI API的情况下访问它。",
+        "warn": "此外，如果您提供授予免费访问AikoAI API的自定义API终结点，则可以通过简单留空API密钥字段来使用ChatGPT，而无需提供API密钥。但是，使用第三方API终结点时务必小心，因为不可信的终结点可能记录您在对话中的个人信息。在使用之前始终验证API终结点的可靠性以保护您的隐私和安全。"
     },
     "apiKey": {
-        "howTo": "Get your Plus API key <0>here</0>.",
-        "inputLabel": "API Key"
+        "howTo": "在此处获取Plus API密钥<0>",
+        "inputLabel": "API密钥"
     },
-    "customEndpoint": "Use custom API endpoint",
-    "advancedConfig": "View advanced API configuration <0>here</0>",
-    "noApiKeyWarning": "No API key supplied! Please check your API settings."
+    "customEndpoint": "使用自定义API终结点",
+    "advancedConfig": "在此处查看高级API配置<0>",
+    "noApiKeyWarning": "未提供API密钥！请检查您的API设置。"
 }
